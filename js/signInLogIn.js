@@ -1,3 +1,17 @@
+var parseQueryString = function() {
+  var str = window.location.search;
+  var objURL = {};
+
+  str.replace(
+      new RegExp( "([^?=&]+)(=([^&]*))?", "g" ),
+      function( $0, $1, $2, $3 ){
+          objURL[ $1 ] = $3;
+      }
+  );
+  return objURL;
+};
+
+
 const sign_in_btn = document.querySelector("#sign-in-btn");
     const sign_up_btn = document.querySelector("#sign-up-btn");
     const container = document.querySelector(".container");
@@ -39,4 +53,8 @@ const sign_in_btn = document.querySelector("#sign-in-btn");
     document.getElementById('showPass2').addEventListener('click', function () {
       this.classList.toggle('fa-eye-slash');
       changeType('pass_field2', 'showPass2');
-    })
+    });
+
+
+  const returnedValue = parseQueryString();
+  console.log(returnedValue);
