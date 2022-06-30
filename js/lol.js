@@ -1,4 +1,5 @@
 function goBack() {
+    console.log('hell');
     window.location.hash = window.location.lasthash[window.location.lasthash.length-1];
     //blah blah blah
     window.location.lasthash.pop();
