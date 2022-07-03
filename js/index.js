@@ -8,5 +8,5 @@ const signInPage = () => {
     preloaderOn();
 }
 
-//on it
-preloaderOn();
+// //on it
+// preloaderOn();

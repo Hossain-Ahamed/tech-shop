@@ -10,9 +10,9 @@ const preloaderOn = () => {
     document.getElementById('loader').style.display = 'block'; //SHOW load screen
 }
 
-const js=() =>{
-    preloaderOn();
+// const js=() =>{
+//     preloaderOn();
 
-    setInterval(preloaderOFF,1000);
-}
+//     setInterval(preloaderOFF,1000);
+// }
 
