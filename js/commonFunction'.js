@@ -1,3 +1,5 @@
+
+
 const preloaderOFF = () => {
     document.getElementById('preloader').style.display = 'none'; //hide load screen
     document.getElementById('loader').style.display = 'none'; //hide load screen
@@ -13,3 +15,4 @@ const js=() =>{
 
     setInterval(preloaderOFF,1000);
 }
+
