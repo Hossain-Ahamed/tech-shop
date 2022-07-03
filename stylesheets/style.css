@@ -83,7 +83,7 @@
     }
     .search-icon{
         display: block;
-        right:5%
+        /* right:-15% */
     }
 }
 
