@@ -25,14 +25,7 @@
 .me-7 {
   margin-right: 7rem !important;
 }
-.search-size{
-  width: 40rem !important;
-}
 
-/* off the search icon for everytime */
-.search-icon{
-    display: none;
-}
 
 
 /* position  */
@@ -44,17 +37,13 @@
 
 /* xl  */
 @media only screen and (max-width: 1400px) {
-    .search-size {
-        width: 40rem !important;
-    }
+
 }
 
 
 /* lg */
 @media only screen and (max-width: 1200px) {
-    .search-size {
-        width: 30rem !important;
-    }
+
 }
 
 
@@ -63,36 +52,10 @@
 @media only screen and (max-width: 992px) {
 
 
-
-  .search-size{
-    width: 25rem !important;
-}
-.search-btn{
-    display: block;
-}
-
 }
 
 /* sm  */
 @media only screen and (max-width: 576px) {
-    .search-size {
-        width: 13rem !important;
-    }
-    .search-btn{
-        display: none;
-    }
-    .search-icon{
-        display: block;
-        /* right:-15% */
-    }
+
 }
 
-
-
-/* VERY sm  */
-@media only screen and (max-width: 350px) {
-    .search-size {
-        width: 8rem !important;
-        
-    }
-}

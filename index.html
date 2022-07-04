@@ -17,161 +17,139 @@
   <!-- personal -->
   <link rel="stylesheet" href="stylesheets/index.css" />
 
-    <!-- font awesome kits  -->
-    <script
-      src="https://kit.fontawesome.com/859d0f0f16.js"
-      crossorigin="anonymous"
-    ></script>
-  </head>
+  <!-- font awesome kits  -->
+  <script src="https://kit.fontawesome.com/859d0f0f16.js" crossorigin="anonymous"></script>
+</head>
 
-  <body onload="preloaderOFF()">
-    <main>
-        <!-- spinner  -->
-        <div id="preloader">
-            <div id="loader">
-                <div class="spinner-grow" role="status">
-                    <span class="visually-hidden">Loading...</span>
-                </div>
-            </div>
-        </div>
+<body onload="preloaderOFF()">
+
+  <!-- spinner  -->
+  <div id="preloader">
+    <div id="loader">
+      <div class="spinner-grow" role="status">
+        <span class="visually-hidden">Loading...</span>
       </div>
     </div>
-
-    <!-- hello -->
-  </main>
-
-
-  <nav class="navbar navbar-expand-lg bg-light">
-    <div class="container-fluid  ">
-
-      <!-- icon  -->
-
-      <a class="navbar-brand" href="#">Navbar</a>
+  </div>
+  </div>
+  </div>
 
 
-      <!-- search bar -->
+  <header>
+    <!-- nav bar  -->
+    <nav class="container  navbar navbar-expand-lg bg-light">
+      <div class="container-fluid  ">
 
-      <form class="d-flex align-items-center position-relative" role="search">
-        <input class="form-control search-size" type="search" placeholder="Search" aria-label="Search">
+        <!-- icon  -->
 
-        <!-- search button and icon switch -->
-        <a href="" class="btn btn-outline-success mx-1 mx-md-2 search-btn" type="submit">Search</a>
-        <a href="" class="search-icon btn btn-outline-success mx-1 mx-md-2 text-success " type="submit"><i
-            class="fa-solid fa-magnifying-glass "></i></a>
-
-      </form>
+        <a class="navbar-brand " href="#">Navbar</a>
 
 
-      <!-- nav option  -->
+        <!-- search bar -->
+        <form class="d-flex align-items-center position-relative search-bar" role="search">
+          <input class="form-control search-size" type="search" placeholder="Search" aria-label="Search">
+          <!-- search button and icon switch -->
+          <a href="" class="btn btn-outline-success mx-1 mx-md-2 search-btn" type="submit">Search</a>
+          <a href="" class="search-icon btn btn-outline-success mx-1 mx-md-2 text-success " type="submit"><i
+              class="fa-solid fa-magnifying-glass "></i></a>
 
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+        </form>
+
+
+        <!-- nav option  -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse top-navigation-bar flex-grow-0 "
+          id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0 align-items-center ">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#"><i class="fa-solid fa-square-phone"></i>
+                +12345678xxx</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="SignInLogInHyperLink" onclick="signInPage()"><i class="fa-solid fa-user"></i>
+                Account</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id='ass' href="#">My wishlist</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link position-relative" href="#"><i class="fa-solid fa-cart-shopping"></i> Your cart
+                <span id="cart-item-count"
+                  class="position-absolute top-1 start-100 translate-middle badge rounded-pill bg-dark">99
+                  <span class="visually-hidden">Item count</span></span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </nav>
+  </header>
+
+  <!-- carousel  -->
+  <section class="container mb-5">
+    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+          aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+          aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+          aria-label="Slide 3"></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="images/imgonline-com-ua-resize-dGBOP4Rqap.jpg" class="d-block w-100 " alt="...">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>First slide label</h5>
+            <p>Some representative placeholder content for the first slide.</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="images/banner-1.png" class="d-block w-100" alt="...">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Second slide label</h5>
+            <p>Some representative placeholder content for the second slide.</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="images/banner-3.jpg"
+            class="d-block w-100" alt="...">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Third slide label</h5>
+            <p>Some representative placeholder content for the third slide.</p>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+        data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
       </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+        data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </section>
 
-      <div class="collapse navbar-collapse top-navigation-bar flex-grow-0  me-0 me-sm-1 me-md-2 me-lg-5 "
-        id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0 align-items-center ">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#"><i class="fa-solid fa-square-phone"></i>
-              +12345678xxx</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" id="SignInLogInHyperLink" onclick="signInPage()"><i class="fa-solid fa-user"></i>
-              Account</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" id='ass' href="#">My wishlist</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link position-relative" href="#"><i class="fa-solid fa-cart-shopping"></i> Your cart
-              <span id="cart-item-count"
-                class="position-absolute top-1 start-100 translate-middle badge rounded-pill bg-dark">99
-                <span class="visually-hidden">Item count</span></span>
-            </a>
-          </li>
-        </ul>
-      </div>
+  <!-- cards-->
+  <section class="container my-5">
+    <div class="row row-cols-1 row-cols-sm-3 gx-0 g-0 g-sm-1 g-md-3 justify-content-center">
+      <div class="col "><img src="images/airpods.png" class="img-fluid" alt="..."></div>
+      <div class="col "><img src="images/headphone.png" class="img-fluid" alt="..."></div>
+      <div class="col "><img src="images/dongle.png" class="img-fluid" alt="..."></div>
+      <div class="col "><img src="images/IpadAir.png" class="img-fluid" alt="..."></div>
+      <div class="col "><img src="images/macbook.png" class="img-fluid" alt="..."></div>
+
+
     </div>
 
-  </nav>
-
-  
-  <!-- top carousel -->
-  <section class="my-5">
-    <div class="container-fluid mx-1 gy-2">
-      <div class="row gx-0 gx-sm-1 gx-md-3">
-
-        <!-- left carousel  -->
-        <div class="col-12 col-md-8 order-0 d-flex align-items-center">
-      
-          <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
-            <div class="carousel-indicators">
-              <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-              <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-              <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
-            </div>
-            <div class="carousel-inner">
-              <div class="carousel-item active">
-                <img src="https://www.simpleimageresizer.com/_uploads/photos/5a681e80/banner-3_1340x900.jpg" class="d-block w-100 " alt="...">
-                <div class="carousel-caption d-none d-md-block">
-                  <h5>First slide label</h5>
-                  <p>Some representative placeholder content for the first slide.</p>
-                </div>
-              </div>
-              <div class="carousel-item">
-                <img src="https://www.simpleimageresizer.com/_uploads/photos/5a681e80/banner-3_1340x900.jpg" class="d-block w-100" alt="...">
-                <div class="carousel-caption d-none d-md-block">
-                  <h5>Second slide label</h5>
-                  <p>Some representative placeholder content for the second slide.</p>
-                </div>
-              </div>
-              <div class="carousel-item">
-                <img src="https://www.simpleimageresizer.com/_uploads/photos/5a681e80/banner-3_1340x900.jpg" class="d-block w-100" alt="...">
-                <div class="carousel-caption d-none d-md-block">
-                  <h5>Third slide label</h5>
-                  <p>Some representative placeholder content for the third slide.</p>
-                </div>
-              </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Next</span>
-            </button>
-          </div>
-
-        </div>
-        <div class="col-12 col-md-4">
-          
-            <div class="row g-2">
-              <div class="col-12 body">
-                <img src="images/IpadAir.png" class="img-fluid" alt="...">
-              </div>
-            </div>
-            <div class="row g-2">
-              <div class="col-12 body">
-          
-                <img src="images/macbook.png" class="img-fluid" alt="...">
-              </div>
-            </div>
-              
-           
-          </div>
-        </div>
-      </div>
-      <div class="row row-cols-1 row-cols-sm-3 gx-0 gx-sm-1 gx-md-3 my-4 mx-0 mx-sm-3">
-        <div class="col body"><img src="images/airpods.png" class="img-fluid" alt="..."></div>
-        <div class="col body"><img src="images/dongle.png" class="img-fluid" alt="..."></div>
-        <div class="col body"><img src="images/headphone.png" class="img-fluid" alt="..."></div>
-     
-       
-      </div>
-
-    </div>
 
   </section>
   <!-- <div class="row row-cols-1 row-cols-md-2 g-4">
