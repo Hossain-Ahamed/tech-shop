@@ -5,7 +5,7 @@
    
 //   })
 
- 
+ const assss = () =>{
 const url = `https://gsmarena-api.herokuapp.com/brands`;
   fetch(url, {
     mode: 'cors',
@@ -17,3 +17,9 @@ const url = `https://gsmarena-api.herokuapp.com/brands`;
     .then(data => { 
         console.log(data);
     })
+
+
+ }
+document.getElementById('ass').addEventListener('click',function(){
+    assss();
+})
