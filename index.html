@@ -170,83 +170,144 @@
       <!-- Vertically centered modal -->
       <div id="modal-button">
         <div class="modal fade" id="one" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-        aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" style="max-width:60%; min-width: 58%;">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
-              <button type="button" class="btn-close" onclick="modalEmpty()" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="card mb-3" id="modal-card">
-             
+          aria-labelledby="staticBackdropLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" style="max-width:60%; min-width: 58%;">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+                <button type="button" class="btn-close" onclick="modalEmpty()" data-bs-dismiss="modal"
+                  aria-label="Close"></button>
+              </div>
+              <div class="card mb-3" id="modal-card">
+
+              </div>
             </div>
           </div>
         </div>
-      </div>
       </div>
       <!-- cards show case -->
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
         <div class="col">
           <div class="card " style="width: 18rem;">
             <img src="images/dongle.png" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a onclick="setModal('dongle.png')" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#one">see one</a>
+            <div class="card-body ">
+              <h5 class="card-title text-center">Nokia 1200</h5>
+              <p class="card-text text-center">BDT <span class="fw-bold "> 12000/=</span></p>
             </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card " style="width: 18rem;">
-            <img src="images/airpods.png" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a onclick="setModal('airpods.png')" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#one">see one</a>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card " style="width: 18rem;">
-            <img src="images/macbook.png" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a onclick="setModal('macbook.png')" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#one">see one</a>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card " style="width: 18rem;">
-            <img src="images/headphone.png" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a onclick="setModal('headphone.png')" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#one">see one</a>
+            <div class="hover-content">
+              <ul class="mx-5 px-0 d-flex flex-wrap justify-content-between text-decoration-none list-unstyled fs-4">
+                <li><a href=""><i class="fa-brands fa-gratipay text-dark"></i></a></li>
+                <li><a href=""><i class="fa-solid fa-bars text-dark"></i></a></li>
+                <li><a onclick="setModal('dongle.png')" href="" data-bs-toggle="modal" data-bs-target="#one"><i
+                      class="fa-solid fa-eye text-dark"></i></a></li>
+              </ul>
             </div>
           </div>
         </div>
         <div class="col">
           <div class="card " style="width: 18rem;">
             <img src="images/dongle.png" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a onclick="setModal('dongle.png')" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#one">see one</a>
+            <div class="card-body ">
+              <h5 class="card-title text-center">Nokia 1200</h5>
+              <p class="card-text text-center">BDT <span class="fw-bold "> 12000/=</span></p>
+            </div>
+            <div class="hover-content">
+              <ul class="mx-5 px-0 d-flex flex-wrap justify-content-between text-decoration-none list-unstyled fs-4">
+                <li><a href=""><i class="fa-brands fa-gratipay text-dark"></i></a></li>
+                <li><a href=""><i class="fa-solid fa-bars text-dark"></i></a></li>
+                <li><a onclick="setModal('dongle.png')" href="" data-bs-toggle="modal" data-bs-target="#one"><i
+                      class="fa-solid fa-eye text-dark"></i></a></li>
+              </ul>
             </div>
           </div>
         </div>
         <div class="col">
           <div class="card " style="width: 18rem;">
-            <img src="images/IpadAir.png" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a onclick="setModal('IpadAir.png')" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#one">see one</a>
+            <img src="images/dongle.png" class="card-img-top" alt="...">
+            <div class="card-body ">
+              <h5 class="card-title text-center">Nokia 1200</h5>
+              <p class="card-text text-center">BDT <span class="fw-bold "> 12000/=</span></p>
+            </div>
+            <div class="hover-content">
+              <ul class="mx-5 px-0 d-flex flex-wrap justify-content-between text-decoration-none list-unstyled fs-4">
+                <li><a href=""><i class="fa-brands fa-gratipay text-dark"></i></a></li>
+                <li><a href=""><i class="fa-solid fa-bars text-dark"></i></a></li>
+                <li><a onclick="setModal('dongle.png')" href="" data-bs-toggle="modal" data-bs-target="#one"><i
+                      class="fa-solid fa-eye text-dark"></i></a></li>
+              </ul>
             </div>
           </div>
         </div>
-       
+        <div class="col">
+          <div class="card " style="width: 18rem;">
+            <img src="images/dongle.png" class="card-img-top" alt="...">
+            <div class="card-body ">
+              <h5 class="card-title text-center">Nokia 1200</h5>
+              <p class="card-text text-center">BDT <span class="fw-bold "> 12000/=</span></p>
+            </div>
+            <div class="hover-content">
+              <ul class="mx-5 px-0 d-flex flex-wrap justify-content-between text-decoration-none list-unstyled fs-4">
+                <li><a href=""><i class="fa-brands fa-gratipay text-dark"></i></a></li>
+                <li><a href=""><i class="fa-solid fa-bars text-dark"></i></a></li>
+                <li><a onclick="setModal('dongle.png')" href="" data-bs-toggle="modal" data-bs-target="#one"><i
+                      class="fa-solid fa-eye text-dark"></i></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card " style="width: 18rem;">
+            <img src="images/dongle.png" class="card-img-top" alt="...">
+            <div class="card-body ">
+              <h5 class="card-title text-center">Nokia 1200</h5>
+              <p class="card-text text-center">BDT <span class="fw-bold "> 12000/=</span></p>
+            </div>
+            <div class="hover-content">
+              <ul class="mx-5 px-0 d-flex flex-wrap justify-content-between text-decoration-none list-unstyled fs-4">
+                <li><a href=""><i class="fa-brands fa-gratipay text-dark"></i></a></li>
+                <li><a href=""><i class="fa-solid fa-bars text-dark"></i></a></li>
+                <li><a onclick="setModal('dongle.png')" href="" data-bs-toggle="modal" data-bs-target="#one"><i
+                      class="fa-solid fa-eye text-dark"></i></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card " style="width: 18rem;">
+            <img src="images/dongle.png" class="card-img-top" alt="...">
+            <div class="card-body ">
+              <h5 class="card-title text-center">Nokia 1200</h5>
+              <p class="card-text text-center">BDT <span class="fw-bold "> 12000/=</span></p>
+            </div>
+            <div class="hover-content">
+              <ul class="mx-5 px-0 d-flex flex-wrap justify-content-between text-decoration-none list-unstyled fs-4">
+                <li><a href=""><i class="fa-brands fa-gratipay text-dark"></i></a></li>
+                <li><a href=""><i class="fa-solid fa-bars text-dark"></i></a></li>
+                <li><a onclick="setModal('dongle.png')" href="" data-bs-toggle="modal" data-bs-target="#one"><i
+                      class="fa-solid fa-eye text-dark"></i></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card " style="width: 18rem;">
+            <img src="images/dongle.png" class="card-img-top" alt="...">
+            <div class="card-body ">
+              <h5 class="card-title text-center">Nokia 1200</h5>
+              <p class="card-text text-center">BDT <span class="fw-bold "> 12000/=</span></p>
+            </div>
+            <div class="hover-content">
+              <ul class="mx-5 px-0 d-flex flex-wrap justify-content-between text-decoration-none list-unstyled fs-4">
+                <li><a href=""><i class="fa-brands fa-gratipay text-dark"></i></a></li>
+                <li><a href=""><i class="fa-solid fa-bars text-dark"></i></a></li>
+                <li><a onclick="setModal('dongle.png')" href="" data-bs-toggle="modal" data-bs-target="#one"><i
+                      class="fa-solid fa-eye text-dark"></i></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+     
+
       </div>
 
 
