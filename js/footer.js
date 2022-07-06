@@ -4,7 +4,7 @@ footer.classList.add('text-center', 'text-lg-start', 'bg-light', 'text-muted');
 
 footer.innerHTML = `   <section class="pt-1">
 <div class="container text-center text-md-start mt-5">
-  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 mt-3">
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4  mt-3">
 
     <div class="col mx-auto mb-4">
       <!-- Content -->
