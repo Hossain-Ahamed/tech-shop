@@ -141,12 +141,120 @@
     <section class="container my-5">
       <div class="row row-cols-1 row-cols-sm-3 gx-0 gy-2 gy-md-0 g-sm-1 g-md-3 justify-content-center">
         <div class="col d-flex justify-content-center "><img src="images/airpods.png" class="img-fluid" alt="..."></div>
-        <div class="col d-flex justify-content-center "><img src="images/headphone.png" class="img-fluid" alt="..."></div>
+        <div class="col d-flex justify-content-center "><img src="images/headphone.png" class="img-fluid" alt="...">
+        </div>
         <div class="col d-flex justify-content-center "><img src="images/dongle.png" class="img-fluid" alt="..."></div>
         <div class="col d-flex justify-content-center "><img src="images/IpadAir.png" class="img-fluid" alt="..."></div>
         <div class="col d-flex justify-content-center "><img src="images/macbook.png" class="img-fluid" alt="..."></div>
       </div>
     </section>
+
+
+    <!-- cards for show case  -->
+    <section class="container my-5">
+      <hr>
+      <div class="btn-toolbar d-flex justify-content-center" role="toolbar" id="show-case-options-buttons"
+        aria-label="Toolbar with button groups">
+        <div class="btn-group me-2" role="group" aria-label="First group">
+          <button type="button" class="btn btn-primary">Phone</button>
+        </div>
+        <div class="btn-group me-2" role="group" aria-label="Second group">
+          <button type="button" class="btn btn-secondary">Laptop</button>
+        </div>
+        <div class="btn-group" role="group" aria-label="Third group">
+          <button type="button" class="btn btn-info">Tablet</button>
+        </div>
+      </div>
+      <hr>
+      <!-- show case  js custom for load data -->
+      <!-- Vertically centered modal -->
+      <div id="modal-button">
+        <div class="modal fade" id="one" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" style="max-width:60%; min-width: 58%;">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+              <button type="button" class="btn-close" onclick="modalEmpty()" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="card mb-3" id="modal-card">
+             
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+      <!-- cards show case -->
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
+        <div class="col">
+          <div class="card " style="width: 18rem;">
+            <img src="images/dongle.png" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <a onclick="setModal('dongle.png')" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#one">see one</a>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card " style="width: 18rem;">
+            <img src="images/airpods.png" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <a onclick="setModal('airpods.png')" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#one">see one</a>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card " style="width: 18rem;">
+            <img src="images/macbook.png" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <a onclick="setModal('macbook.png')" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#one">see one</a>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card " style="width: 18rem;">
+            <img src="images/headphone.png" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <a onclick="setModal('headphone.png')" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#one">see one</a>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card " style="width: 18rem;">
+            <img src="images/dongle.png" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <a onclick="setModal('dongle.png')" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#one">see one</a>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card " style="width: 18rem;">
+            <img src="images/IpadAir.png" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <a onclick="setModal('IpadAir.png')" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#one">see one</a>
+            </div>
+          </div>
+        </div>
+       
+      </div>
+
+
+
+    </section>
+
+
+
   </main>
 
 
@@ -155,7 +263,9 @@
   <footer id="main-footer"></footer>
 
   <!-- boostrap js cdn -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+    crossorigin="anonymous"></script>
 
   <!-- common js file  -->
   <script src="js/commonFunction'.js"></script>
