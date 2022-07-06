@@ -20,12 +20,19 @@ document.getElementById('SignInLogInHyperLink').setAttribute('href', link);
 // xhr.send();
 
 
+// stop hover three option in card if the screen is less than 576px
+const HoverShowOrNot = () => {
+  if (screen.width < 576) {
+    document.getElementById('hoverContent').style.display = 'none';
+  }
+}
+HoverShowOrNot();
 
 
 //show case
 const setModal = nameOfImage => {
-   document.getElementById('modal-card').textContent ='';
-   document.getElementById('modal-card').innerHTML = `
+  document.getElementById('modal-card').textContent = '';
+  document.getElementById('modal-card').innerHTML = `
    <div class="row g-0">
    <div class="col-md-6 ">
      <img src="images/${nameOfImage}" class="img-fluid rounded-start" alt="...">
@@ -45,7 +52,7 @@ const setModal = nameOfImage => {
 
 // empty the modal data 
 const modalEmpty = () => {
-   
-   document.getElementById('modal-card').textContent ='';
-  
+
+  document.getElementById('modal-card').textContent = '';
+
 }
