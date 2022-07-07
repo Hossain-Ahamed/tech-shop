@@ -23,7 +23,11 @@ document.getElementById('SignInLogInHyperLink').setAttribute('href', link);
 // stop hover three option in card if the screen is less than 576px
 const HoverShowOrNot = () => {
   if (screen.width < 576) {
-    document.getElementById('hoverContent').style.display = 'none';
+    const selects =  document.getElementsByClassName('hover-content');
+    for(var i =0, il = selects.length;i<il;i++){
+      selects[i].style.display ='none';
+   }
+  
   }
 }
 HoverShowOrNot();
