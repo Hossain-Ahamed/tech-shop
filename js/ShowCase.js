@@ -61,7 +61,7 @@ const displayPhone = phones => {
     const col = document.createElement('div');
     col.classList.add('col', 'd-flex', 'justify-content-center');
     col.innerHTML = `
-    <div class="card "  id="">
+    <div class="card "  id="${phone.url}">
     <div class="card-body">
       <img src="${phone.img}" class="card-img-top" alt="...">
    </div>         
@@ -71,7 +71,7 @@ const displayPhone = phones => {
     <div class="hover-content">
       <ul class="mx-5 px-0 d-flex flex-wrap justify-content-between text-decoration-none list-unstyled fs-4">
         <li><a href=""><i class="fa-brands fa-gratipay text-dark"></i></a></li>
-        <li><a href=""><i class="fa-solid fa-bars text-dark"></i></a></li>
+        <li><a href=""><i class="fa-solid fa-bars text-dark" id="${phone.url}"></i></a></li>
         <li><a onclick="setModal()" id="${phone.url}" href="" data-bs-toggle="modal" data-bs-target="#one"><i
           class="fa-solid fa-eye text-dark"></i></a></li>
         </ul>
