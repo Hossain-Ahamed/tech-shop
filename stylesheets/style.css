@@ -33,29 +33,99 @@
     top: 0.3rem !important;
 }
 
+.top-navigation-bar li {
+  border-right: 1px solid rgb(128, 124, 124);
+}
+.top-navigation-bar li:last-child {
+  border-right: 0;
+}
+
+
+/* off the search icon for everytime */
+.search-icon{
+  display: none;
+}
+
+ /* search bar  */
+.search-size{
+  width: 30rem !important;
+}
 
 
 /* xl  */
 @media only screen and (max-width: 1400px) {
-
+  .top-navigation-bar li {
+    font-size: 0.8rem !important;
+  }
+  .search-size {
+    width: 30rem !important;
 }
-
+}
 
 /* lg */
 @media only screen and (max-width: 1200px) {
+  .top-navigation-bar li {
+    font-size: 0.8rem !important;
+  }
 
+  .search-size {
+    width: 25rem !important;
+}
 }
 
 
+/* lg n md*/
+@media only screen and (max-width: 1024px) {
+  .top-navigation-bar li {
+    font-size: 0.8rem !important;
+  }
 
-/* md  */
+
+}
+
+/* md */
 @media only screen and (max-width: 992px) {
-
-
+  .top-navigation-bar li {
+    border-right: 0px solid rgb(128, 124, 124);
+    font-size: 1rem !important;
+  }
+  .search-size{
+    width: 15rem !important;
 }
+.search-btn{
+    display: block;
+}
+}
+
 
 /* sm  */
 @media only screen and (max-width: 576px) {
-
+  .search-size {
+    width: 11rem !important;
+  }
+  .search-btn {
+    display: none;
+  }
+  .search-icon {
+    display: block;
+    /* right:-15% */
+  }
 }
 
+/* VERY sm  */
+@media only screen and (max-width: 350px) {
+  .navbar-toggler {
+    order: 0 !important;
+  }
+  .navbar-brand {
+    order: 1 !important;
+  }
+  .navbar-brand,
+  .navbar-toggler,
+  .search-size {
+    display: block;
+  }
+  .search-size {
+    width: 100% !important;
+  }
+}

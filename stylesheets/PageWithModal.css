@@ -1,0 +1,28 @@
+
+/* card hover animated options icon  */
+.card{
+    position: relative;
+  }
+  .card:hover .hover-content{
+    position: absolute;
+    opacity: 1;
+    background-color: rgba(197, 197, 197, 0.3);
+   display: block;
+    bottom: 0;
+  }
+  .hover-content{
+    left: 0;
+    top:80%;
+    width: 100%;
+    text-align: center;
+    animation: topToBottom .5s 1;
+    animation-direction: normal;
+    opacity: 0;
+    display: none;
+    margin: 0;
+  }
+  @keyframes topToBottom {
+    0%   {left: 0px; top: 90%;} 
+    100% {left: 0px; top: 80%;}
+  }
+  
