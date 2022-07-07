@@ -82,10 +82,22 @@ const modalEmpty = () => {
 }
 
 
-const fetchh = ()=>{
-  const url = `https://the-mobile-store.herokuapp.com/api/phones/`;
-  fetch(url)
-      .then(res => res.json())
-      .then(data => console.log(data));
+// const fetchh = ()=>{
+//   const url = `https://the-mobile-store.herokuapp.com/api/phones/`;
+//   fetch(url)
+//       .then(res => res.json())
+//       .then(data => console.log(data));
+// }
+// fetchh();
+function CORSSolve() {
+  const xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function(){
+    if(this.readyState ==4 && this.status ==200){
+      document.getElementById('data').innerText = xhttp.responseText
+    }
+  };
+  //https://cors-anywhere.herokuapp.com/corsdemo
+  xhttp.open("GET","https://cors-anywhere.herokuapp.com/http://gsmarena-api.herokuapp.com/device/apple_iphone_13_pro_max-11089",true)
+  xhttp.send()
 }
-fetchh();
+CORSSolve();
