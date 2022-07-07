@@ -5,7 +5,7 @@ header.innerHTML = `  <!-- nav bar  -->
     
     <!-- icon  -->
 
-    <a class="navbar-brand " href="#">Navbar</a>
+    <a class="navbar-brand " id="companyName"href="#">Navbar</a>
   
     <!-- search bar -->
     <form class="d-flex align-items-center position-relative search-bar" role="search">

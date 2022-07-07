@@ -23,6 +23,7 @@ var parseQueryString = function() {
  }
 // stop hover three option in card if the screen is less than 576px
 const HoverShowOrNot = () => {
+  document.getElementById('companyName').innerText = 'hdsfhshdf';
     if (screen.width < 576) {
       const selects =  document.getElementsByClassName('hover-content');
       for(var i =0, il = selects.length;i<il;i++){
@@ -31,7 +32,7 @@ const HoverShowOrNot = () => {
     
     }
   }
-  HoverShowOrNot();
+
   
   function CORSSolve(url) {
     const xhttp = new XMLHttpRequest();
@@ -102,3 +103,6 @@ const clickedBrand = parseQueryString();
 
 loadPhoneShowCaseURL();
 
+
+// need to be in last ----Turn off hover content
+HoverShowOrNot();
