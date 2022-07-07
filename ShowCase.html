@@ -1,140 +1,98 @@
-    <!-- Vertically centered modal -->
-    <div id="modal-button">
-        <div class="modal fade" id="one" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-          aria-labelledby="staticBackdropLabel" aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered" style="max-width:60%; min-width: 58%;">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
-                <button type="button" class="btn-close" onclick="modalEmpty()" data-bs-dismiss="modal"
-                  aria-label="Close"></button>
-              </div>
-              <div class="card mb-3" id="modal-card">
+<!DOCTYPE html>
+<html lang="en">
 
-              </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tech-Shop</title>
+
+
+  <!------------------------------------------------STYLESHEETS  --------------------------------------->
+  <!-- Bootsrap cdn  -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous" />
+
+  <!-- stylesheet  -->
+  <link rel="stylesheet" href="stylesheets/style.css" />
+
+  <!-- personal -->
+  <link rel="stylesheet" href="stylesheets/PageWithModal.css" />
+
+  <!-- font awesome kits  -->
+  <script src="https://kit.fontawesome.com/859d0f0f16.js" crossorigin="anonymous"></script>
+</head>
+
+<body onload="preloaderOFF()">
+
+  <!-- spinner  -->
+  <div id="preloader">
+    <div id="loader">
+      <div class="spinner-grow" role="status">
+        <span class="visually-hidden">Loading your site. Keep Patience</span>
+      </div>
+    </div>
+  </div>
+  </div>
+  </div>
+
+
+  <!-- NAV BAR  -->
+  <header id="navbar-header"></header>
+
+  <main class="my-1 my-sm-2 my-md-4">
+    <section class="container mb-5">
+
+      <div id="modal-button">
+        <div class="modal fade" id="one" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" style="max-width:60%; min-width: 58%;">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+              <button type="button" class="btn-close" onclick="modalEmpty()" data-bs-dismiss="modal"
+              aria-label="Close"></button>
+            </div>
+            <div class="card mb-3" id="modal-card">
+              
             </div>
           </div>
         </div>
       </div>
-      <!-- cards show case -->
-      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 gy-2 gy-sm-1 ">
-        <div class="col  d-flex justify-content-center">
-          <div class="card " style="width: 18rem;">
-            <img src="images/dongle.png" class="card-img-top" alt="...">
-            <div class="card-body ">
-              <h5 class="card-title text-center">Nokia 1200</h5>
-              <p class="card-text text-center">BDT <span class="fw-bold "> 12000/=</span></p>
-            </div>
-            <div class="hover-content" id="hoverContent">
-              <ul class="mx-5 px-0 d-flex flex-wrap justify-content-between text-decoration-none list-unstyled fs-4">
-                <li><a href=""><i class="fa-brands fa-gratipay text-dark"></i></a></li>
-                <li><a href=""><i class="fa-solid fa-bars text-dark"></i></a></li>
-                <li><a onclick="setModal('dongle.png')" href="" data-bs-toggle="modal" data-bs-target="#one"><i
-                      class="fa-solid fa-eye text-dark"></i></a></li>
-              </ul>
-            </div>
-          </div>
+    </div>
+    <!-- phone card show case -->
+    <div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-6 gy-2 gy-md-4 justify-content-center" id="show-case-container">      
         </div>
-        <div class="col d-flex justify-content-center">
-          <div class="card " style="width: 18rem;">
-            <img src="images/dongle.png" class="card-img-top" alt="...">
-            <div class="card-body ">
-              <h5 class="card-title text-center">Nokia 1200</h5>
-              <p class="card-text text-center">BDT <span class="fw-bold "> 12000/=</span></p>
-            </div>
-            <div class="hover-content">
-              <ul class="mx-5 px-0 d-flex flex-wrap justify-content-between text-decoration-none list-unstyled fs-4">
-                <li><a href=""><i class="fa-brands fa-gratipay text-dark"></i></a></li>
-                <li><a href=""><i class="fa-solid fa-bars text-dark"></i></a></li>
-                <li><a onclick="setModal('dongle.png')" href="" data-bs-toggle="modal" data-bs-target="#one"><i
-                      class="fa-solid fa-eye text-dark"></i></a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="col d-flex justify-content-center">
-          <div class="card " style="width: 18rem;">
-            <img src="images/dongle.png" class="card-img-top" alt="...">
-            <div class="card-body ">
-              <h5 class="card-title text-center">Nokia 1200</h5>
-              <p class="card-text text-center">BDT <span class="fw-bold "> 12000/=</span></p>
-            </div>
-            <div class="hover-content">
-              <ul class="mx-5 px-0 d-flex flex-wrap justify-content-between text-decoration-none list-unstyled fs-4">
-                <li><a href=""><i class="fa-brands fa-gratipay text-dark"></i></a></li>
-                <li><a href=""><i class="fa-solid fa-bars text-dark"></i></a></li>
-                <li><a onclick="setModal('dongle.png')" href="" data-bs-toggle="modal" data-bs-target="#one"><i
-                      class="fa-solid fa-eye text-dark"></i></a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="col d-flex justify-content-center">
-          <div class="card " style="width: 18rem;">
-            <img src="images/dongle.png" class="card-img-top" alt="...">
-            <div class="card-body ">
-              <h5 class="card-title text-center">Nokia 1200</h5>
-              <p class="card-text text-center">BDT <span class="fw-bold "> 12000/=</span></p>
-            </div>
-            <div class="hover-content">
-              <ul class="mx-5 px-0 d-flex flex-wrap justify-content-between text-decoration-none list-unstyled fs-4">
-                <li><a href=""><i class="fa-brands fa-gratipay text-dark"></i></a></li>
-                <li><a href=""><i class="fa-solid fa-bars text-dark"></i></a></li>
-                <li><a onclick="setModal('dongle.png')" href="" data-bs-toggle="modal" data-bs-target="#one"><i
-                      class="fa-solid fa-eye text-dark"></i></a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="col d-flex justify-content-center">
-          <div class="card " style="width: 18rem;">
-            <img src="images/dongle.png" class="card-img-top" alt="...">
-            <div class="card-body ">
-              <h5 class="card-title text-center">Nokia 1200</h5>
-              <p class="card-text text-center">BDT <span class="fw-bold "> 12000/=</span></p>
-            </div>
-            <div class="hover-content">
-              <ul class="mx-5 px-0 d-flex flex-wrap justify-content-between text-decoration-none list-unstyled fs-4">
-                <li><a href=""><i class="fa-brands fa-gratipay text-dark"></i></a></li>
-                <li><a href=""><i class="fa-solid fa-bars text-dark"></i></a></li>
-                <li><a onclick="setModal('dongle.png')" href="" data-bs-toggle="modal" data-bs-target="#one"><i
-                      class="fa-solid fa-eye text-dark"></i></a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="col d-flex justify-content-center">
-          <div class="card " style="width: 18rem;">
-            <img src="images/dongle.png" class="card-img-top" alt="...">
-            <div class="card-body ">
-              <h5 class="card-title text-center">Nokia 1200</h5>
-              <p class="card-text text-center">BDT <span class="fw-bold "> 12000/=</span></p>
-            </div>
-            <div class="hover-content">
-              <ul class="mx-5 px-0 d-flex flex-wrap justify-content-between text-decoration-none list-unstyled fs-4">
-                <li><a href=""><i class="fa-brands fa-gratipay text-dark"></i></a></li>
-                <li><a href=""><i class="fa-solid fa-bars text-dark"></i></a></li>
-                <li><a onclick="setModal('dongle.png')" href="" data-bs-toggle="modal" data-bs-target="#one"><i
-                      class="fa-solid fa-eye text-dark"></i></a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="col d-flex justify-content-center">
-          <div class="card " style="width: 18rem;">
-            <img src="images/dongle.png" class="card-img-top" alt="...">
-            <div class="card-body ">
-              <h5 class="card-title text-center">Nokia 1200</h5>
-              <p class="card-text text-center">BDT <span class="fw-bold "> 12000/=</span></p>
-            </div>
-            <div class="hover-content">
-              <ul class="mx-5 px-0 d-flex flex-wrap justify-content-between text-decoration-none list-unstyled fs-4">
-                <li><a href=""><i class="fa-brands fa-gratipay text-dark"></i></a></li>
-                <li><a href=""><i class="fa-solid fa-bars text-dark"></i></a></li>
-                <li><a onclick="setModal('dongle.png')" href="" data-bs-toggle="modal" data-bs-target="#one"><i
-                      class="fa-solid fa-eye text-dark"></i></a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
+      </section>
+      </main>
+      
+      
+      
+      <!-- Footer -->
+      <footer id="main-footer"></footer>
+      
+      <!-------------------------------------------                JS FILES               ----------------------------->
+      
+      <!-- boostrap js cdn -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+    crossorigin="anonymous"></script>
+
+ 
+
+  <!-- header  navbar adding js   -->
+  <script src="js/headerNav.js"></script>
+
+  <!-- footer adding js  -->
+  <script src="js/footer.js"></script>
+
+  <!-- private js file  -->
+  <script src="js/ShowCase.js"></script> 
+
+  <!-- to set modal-->
+  <script src="js/modal.js"></script>
+  <!-- common js file  -->
+  <script src="js/commonFunction.js"></script>
+</body>
+
+</html>

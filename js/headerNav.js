@@ -31,7 +31,7 @@ header.innerHTML = `  <!-- nav bar  -->
             +12345678xxx</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" id="SignInLogInHyperLink" onclick="signInPage()"><i class="fa-solid fa-user"></i>
+          <a class="nav-link" id="SignInLogInHyperLink" ><i class="fa-solid fa-user"></i>
             Account</a>
         </li>
         <li class="nav-item">
@@ -49,3 +49,10 @@ header.innerHTML = `  <!-- nav bar  -->
 
   </div>
 </nav>`;
+
+//set link to the account
+const id = 1001;
+document.getElementById('SignInLogInHyperLink').style.cssText ="cursor : pointer;";
+document.getElementById('SignInLogInHyperLink').addEventListener('click',function(){
+  window.location.assign(`SignInLogIn.html?q=${id}`);
+});
