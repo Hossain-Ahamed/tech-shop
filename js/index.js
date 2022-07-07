@@ -80,4 +80,3 @@ const setModal = nameOfImage => {
 const modalEmpty = () => {
   document.getElementById('modal-card').textContent = '';
 }
-onGet();
