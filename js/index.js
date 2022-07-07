@@ -38,8 +38,8 @@ const setModal = nameOfImage => {
   document.getElementById('modal-card').textContent = '';
   document.getElementById('modal-card').innerHTML = `
    <div class="row g-0">
-   <div class="col-md-6 ">
-     <img src="images/${nameOfImage}" class="img-fluid rounded-start" alt="...">
+   <div class="col-md-6 d-flex align-item-center ">
+     <img src="images/${nameOfImage}" class=" rounded-start" alt="...">
    </div>
    <div class="col-md-6">
      <div class="card-body">
@@ -56,7 +56,5 @@ const setModal = nameOfImage => {
 
 // empty the modal data 
 const modalEmpty = () => {
-
   document.getElementById('modal-card').textContent = '';
-
 }

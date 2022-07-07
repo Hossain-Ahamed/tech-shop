@@ -1,3 +1,4 @@
+// get item from url 
 var parseQueryString = function() {
   var str = window.location.search;
   var objURL = {};
@@ -27,7 +28,7 @@ const sign_in_btn = document.querySelector("#sign-in-btn");
 
 
 
-    ////Hide and Show Function
+    ////Hide and Show password Function of password field 
     const changeType = (passFieldID, showPassIconID) => {
       const passField = document.getElementById(passFieldID);
       if (passField.type === 'password') {
