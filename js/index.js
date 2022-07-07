@@ -19,7 +19,28 @@ document.getElementById('SignInLogInHyperLink').setAttribute('href', link);
 
 // xhr.send();
 
-
+function onGet() {
+  const url = "https://gsmarena-api.herokuapp.com/brand/apple-phones-48";
+  var headers = {}
+  
+  fetch(url, {
+      method : "GET",
+      mode: 'cors',
+      headers: headers
+  })
+  .then((response) => {
+      if (!response.ok) {
+          throw new Error(response.error)
+      }
+      return response.json();
+  })
+  .then(data => {
+      document.getElementById('messages').innerText = data.messages;
+  })
+  .catch(function(error) {
+      document.getElementById('messages').innerText = error;
+  });
+}
 // stop hover three option in card if the screen is less than 576px
 const HoverShowOrNot = () => {
   if (screen.width < 576) {
@@ -58,3 +79,4 @@ const setModal = nameOfImage => {
 const modalEmpty = () => {
   document.getElementById('modal-card').textContent = '';
 }
+onGet();
