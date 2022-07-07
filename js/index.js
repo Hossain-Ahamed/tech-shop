@@ -80,3 +80,12 @@ const setModal = nameOfImage => {
 const modalEmpty = () => {
   document.getElementById('modal-card').textContent = '';
 }
+
+
+const fetchh = ()=>{
+  const url = `https://the-mobile-store.herokuapp.com/api/phones/`;
+  fetch(url)
+      .then(res => res.json())
+      .then(data => console.log(data));
+}
+fetchh();

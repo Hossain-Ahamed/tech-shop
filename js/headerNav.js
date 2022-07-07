@@ -9,7 +9,7 @@ header.innerHTML = `  <!-- nav bar  -->
   
     <!-- search bar -->
     <form class="d-flex align-items-center position-relative search-bar" role="search">
-      <input class="form-control search-size" type="search" placeholder="Search" aria-label="Search">
+      <input class="form-control search-size" id="search-field-text" type="search" placeholder="Search" aria-label="Search">
       <!-- search button and icon switch -->
       <a href="" class="btn btn-outline-success mx-1 mx-md-2 search-btn" type="submit">Search</a>
       <a href="" class="search-icon btn btn-outline-success mx-1 mx-md-2 text-success " type="submit"><i
