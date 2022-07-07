@@ -8,7 +8,9 @@ function CORSSolve(url) {
   const xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function(){
     if(this.readyState ==4 && this.status ==200){
-      return xhttp.responseText;
+      const returnedData = xhttp.responseText;
+      console.log('in function',returnedData);
+      return returnedData;
     }
   };
   //https://cors-anywhere.herokuapp.com/corsdemo
