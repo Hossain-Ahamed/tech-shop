@@ -12,7 +12,7 @@ function CORSSolve(url) {
     }
   };
   //https://cors-anywhere.herokuapp.com/corsdemo
-  xhttp.open("GET",url,true)
+  xhttp.open("GET",url,true);
   xhttp.send()
 }
 
@@ -30,4 +30,4 @@ const loadPhoneBrandCase = () =>{
 
 
 }
-// loadPhoneBrandCase();
+loadPhoneBrandCase();
