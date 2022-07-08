@@ -26,7 +26,7 @@ const HoverShowOrNot = () => {
   document.getElementById('companyName').innerText = 'hdsfhshdf';
     if (screen.width < 576) {
       const selects =  document.getElementsByClassName('hover-content');
-      for(var i =0, il = selects.length;i<il;i++){
+      for(var i =0;i<selects.length;i++){
         selects[i].style.display ='none';
      }
     
@@ -69,7 +69,7 @@ const displayPhone = phones => {
      <h5 class="card-title text-center">${phone.name}</h5>       
    </div>
     <div class="hover-content">
-      <ul class="mx-5 px-0 d-flex flex-wrap justify-content-between text-decoration-none list-unstyled fs-4">
+      <ul class="mx-2 mx-sm-2 mx-md-3 px-0 d-flex flex-wrap justify-content-between text-decoration-none list-unstyled fs-4">
         <li><a href=""><i class="fa-brands fa-gratipay text-dark"></i></a></li>
         <li><a href=""><i class="fa-solid fa-bars text-dark" id="${phone.url}"></i></a></li>
         <li><a onclick="setModal()" id="${phone.url}" href="" data-bs-toggle="modal" data-bs-target="#one"><i
@@ -95,10 +95,10 @@ const clickedBrand = parseQueryString();
 
 
   //  ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓  uncomment FOR LOAD DATA  ↓ ↓ ↓ ↓ ↓ ↓ 
-  CORSSolve(url);
+  // CORSSolve(url);
 
   //  ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓  make FOR LOAD DATA  ↓ ↓ ↓ ↓ ↓ ↓ ↓
-  // const raw = JSON.parse(fakeData).data; displayPhone(raw);
+  const raw = JSON.parse(fakeData).data; displayPhone(raw);
 }
 
 loadPhoneShowCaseURL();
