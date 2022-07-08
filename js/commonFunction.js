@@ -14,13 +14,13 @@ const preloaderOn = () => {
 window.addEventListener('keyup', function (event) {
     if (event.keyCode === 13) {
        
-        console.log('j');
+        // console.log('j');
         searchPhone();
        
     }
 });
  const searchPhone = ()=>{
-    console.log('get search command');
+    // console.log('get search command');
      const text = document.getElementById('search-field-text').innerText;
       //get data from API
       const url = `https://openapi.programming-hero.com/api/phone/${text}`;
