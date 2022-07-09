@@ -51,9 +51,9 @@ header.innerHTML = `  <!-- nav bar  -->
 </nav>`;
 
 //set link to the account
-const id = 1001;
+// const id = 1001;
 document.getElementById('SignInLogInHyperLink').style.cssText ="cursor : pointer;";
-document.getElementById('SignInLogInHyperLink').setAttribute('href','SignInLogIn.html');
+// document.getElementById('SignInLogInHyperLink').setAttribute('href','SignInLogIn.html');
 
 
 const searchItem = () =>{

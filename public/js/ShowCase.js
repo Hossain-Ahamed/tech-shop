@@ -142,7 +142,7 @@ const ShowPhoneALlDetailPageLoad = ImageUrl => {
 
 
   let url = `detailView.html?q=https://cors-anywhere.herokuapp.com/http://gsmarena-api.herokuapp.com/device/${ImageUrl}`;
-  location.assign(url)
+  location.assign(url);
 
 
 }
