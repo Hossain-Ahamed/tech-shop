@@ -31,7 +31,7 @@ header.innerHTML = `  <!-- nav bar  -->
             +12345678xxx</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" id="SignInLogInHyperLink" ><i class="fa-solid fa-user"></i>
+          <a class="nav-link" id="SignInLogInHyperLink" href="/login" ><i class="fa-solid fa-user"></i>
             Account</a>
         </li>
         <li class="nav-item">
