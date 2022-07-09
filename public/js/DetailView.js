@@ -1,5 +1,20 @@
 
 let returnedData;
+
+
+function getMoney(text) {
+  let pattern = /\s\$ [0-9]*,([+-]?(?=\.\d|\d)(?:\d+)?(?:\.?\d*))(?:[eE]([+-]?\d+))?/g ;
+  let result = text.match(pattern);
+  if (result === null) {
+      pattern = /\s\Rp [0-9]*,([+-]?(?=\.\d|\d)(?:\d+)?(?:\.?\d*))(?:[eE]([+-]?\d+))?,([0-9]*)?/g;
+      result = text.match(pattern);    
+      return (parseFloat(result[0].split('Rp')[1].trim().split(',').join(''))* 1.17);    
+  } 
+  else {  
+      return (parseFloat(result[0].split('$')[1].trim().split(',').join(''))*93);
+  }
+}
+
 // get item from url 
 var parseQueryString = function () {
     var str = window.location.search;
@@ -70,9 +85,10 @@ const setPage = () => {
     <div class="card">
       <div class="card-body">
           <ul class="list-group list-group-flush" id="detail-view-ul"></ul>
+          <p>Price : <span id="priceOfPhone">1000</span> BDT</p>
           <div class="d-grid gap-2 col-6 mx-auto">
-               <button style="cursor: pointer;" class="btn btn-primary" type="button" onclick="cartAdd('${returnedData.title}')">Add to Cart</button>
-          </div>
+                <button style="cursor: pointer;" class="btn btn-primary" type="button" onclick="cartAdd('${returnedData.title}')">Add to Cart</button>
+           </div>
        
       </div>
     </div>
