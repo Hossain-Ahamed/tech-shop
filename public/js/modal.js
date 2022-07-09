@@ -2,6 +2,23 @@
 let returnedData;
 let taka;
 
+function getMoney(text) {
+  let pattern = /\s\$ [0-9]*,([+-]?(?=\.\d|\d)(?:\d+)?(?:\.?\d*))(?:[eE]([+-]?\d+))?/g ;
+  let result = text.match(pattern);
+  console.log('dollar' ,result);
+  if (result === null) {
+      pattern = /\s\Rp [0-9]*,([+-]?(?=\.\d|\d)(?:\d+)?(?:\.?\d*))(?:[eE]([+-]?\d+))?,([0-9]*)?/g;
+      result = text.match('rp',pattern); 
+      console.log(result);   
+      return (parseFloat(result[0].split('Rp')[1].trim().split(',').join('')) * 1.17);     
+  } 
+  else {    
+    console.log(parseFloat(result[0].split('$')[1].trim().split(',').join('')));
+      return (parseFloat(result[0].split('$')[1].trim().split(',').join('')) *93);
+  }
+}
+
+
 const loadQuickSpec = () => {
 
   const ul = document.getElementById('modal-card-ul');
@@ -30,12 +47,6 @@ const loadQuickSpec = () => {
 
 }
 
-const getBDT = ()=>{
-  stringOfPrice = returnedData.spec_detail[12].specs[4].value;
-  let dollarPatter
-
-
-}
 
 
 // modal set up for the clicked phone 
@@ -50,9 +61,9 @@ const setModal = nameOfImage => {
          <h5 class="card-title">${returnedData.title}</h5>
          <ul class="list-group list-group-flush" id="modal-card-ul">
               
-       </ul>
-       <p> Price : </p>
-       <div class="d-grid gap-2 col-6 mx-auto">
+         </ul>
+         <p>Price : <span id="priceOfPhone">225000</span> BDT</p>
+         <div class="d-grid gap-2 col-6 mx-auto">
                <button style="cursor: pointer;" class="btn btn-primary" type="button" onclick="cartAdd('${returnedData.title}')">Add to Cart</button>
           </div>
         
