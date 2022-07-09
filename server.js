@@ -8,6 +8,7 @@ const bcrypt = require("bcryptjs");
 const cookieParser = require("cookie-parser");
 var session = require("express-session");
 const bodyParser = require("body-parser");
+const ejs = require('ejs');
 
 
 
@@ -42,6 +43,7 @@ app.use(express.urlencoded({extended : false}));
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
+app.set('view engine','ejs');
 
 // initialize express-session to allow us track the logged-in user across sessions.
 app.use(
@@ -90,14 +92,17 @@ app.get('/', function(req, res) {
 //   res.sendFile(path.join(__dirname, '/About.html'));
 // });
 app.get('/login',sessionChecker, function(req, res) {
-  res.sendFile(path.join(__dirname, './public/SignInLogIn.html'));
+  // res.sendFile(path.join(__dirname, './public/SignInLogIn.ejs'));
+  res.render('pages/SignInLogIn',{reso : "",
+reso1 : ""});
 });
 // app.get('/contact', function(req, res) {
 //   res.sendFile(path.join(__dirname, '/contact.html'));
 // });
 app.get('/profile',function(req, res) {
   if (req.session.user && req.cookies.user_sid) {
-    res.sendFile(path.join(__dirname, './public/profile.html'));
+    // res.sendFile(path.join(__dirname, './public/profile.html'));
+    
   } else {
     res.redirect("/login");
   }
@@ -113,7 +118,7 @@ app.get('/profile',function(req, res) {
 //                  login form added
 
 
-app.post('/logincheck' , function async(req, res){
+app.post('/login' , function async(req, res){
     const userName = req.body.Username;
     const Email = (req.body.email).toLowerCase();
     const password = req.body.password;
@@ -128,19 +133,28 @@ app.post('/logincheck' , function async(req, res){
     
        // using hash password compare
 
-       const test = await bcrypt.compare(password, result[0]['Password']);
+       if(result.length > 0){
+        const test = await bcrypt.compare(password, result[0]['Password']);
             console.log(test);
             if(test){
                 console.log(req.body);
                 req.session.user = Email;
                 res.redirect('/profile');         
             }
+       }
+       else{
+        const reso ="user not register";
+        res.render('pages/SignInLogIn',{reso : reso, reso1 : ""})
+       }
+
+       
     });
   
 });
 
 
 //      check register form
+
 
 
 app.post('/register' , function (req, res){
@@ -159,17 +173,17 @@ app.post('/register' , function (req, res){
         }
 
         if(result.length>0){
-            res.send("This "+ email +" already used");
+          res.render('pages/SignInLogIn',{reso1 : "Already used E-mail" , reso : ""});
             
         }
         else if(password !== c_password){
 
-            res.send("Password and Confirm Password not match");
+          res.render('pages/SignInLogIn',{reso1 : "Password Not Same", reso : ""});
             
         }
         else if(password.length < 8){
 
-            res.send("Password must be longerthen 8");
+          res.render('pages/SignInLogIn',{reso1 : "Password length must be more than 8", reso : ""});
 
         }else{
 
