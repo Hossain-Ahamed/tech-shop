@@ -33,7 +33,6 @@ const displayBrands = brands => {
                        
           
             `;
-    // col.appendChild(card);
     PhoneBrandNameContainer.appendChild(col);
 
   }
@@ -53,18 +52,21 @@ const loadPhoneBrandCase = () => {
   // displayBrands(fakeData);
 }
 
+
+
+/*_________________START_____________________*/
 loadPhoneBrandCase();
 
 
-//clicked brand detail
+//clicked brand detail ------> href to ShowCase.html
 const showAllPhoneOfClickedBrand = urlID =>{
 
   // console.log(event.srcElement.id);
   let id = event.srcElement.id;
-  let url= `ShowCase.html?q=${id}`;
+  let url= `ShowCase.html?q=http://gsmarena-api.herokuapp.com/brand/${id}&dataIn=true`;
 
 
-location.assign(url)
+location.assign(url);
   
  
 }

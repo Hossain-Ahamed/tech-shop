@@ -1,0 +1,7 @@
+1. help of the showCase.html, modal.js
+   load the data into the page ***** USE show case html ******
+
+2. To show Detail use the DetailView.html
+
+
+

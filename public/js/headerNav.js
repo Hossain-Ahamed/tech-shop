@@ -5,14 +5,14 @@ header.innerHTML = `  <!-- nav bar  -->
     
     <!-- icon  -->
 
-    <a class="navbar-brand " id="companyName"href="#">Navbar</a>
+    <a class="navbar-brand " id="companyName"href="index.html">VaiVaiTech</a>
   
     <!-- search bar -->
     <form class="d-flex align-items-center position-relative search-bar" role="search">
       <input class="form-control search-size" id="search-field-text" type="search" placeholder="Search" aria-label="Search">
       <!-- search button and icon switch -->
-      <a href="" class="btn btn-outline-success mx-1 mx-md-2 search-btn" type="submit">Search</a>
-      <a href="" class="search-icon btn btn-outline-success mx-1 mx-md-2 text-success " type="submit"><i
+      <a onclick="searchItem()" class="btn btn-outline-success mx-1 mx-md-2 search-btn" type="submit">Search</a>
+      <a   onclick="searchItem()" class="search-icon btn btn-outline-success mx-1 mx-md-2 text-success " type="submit"><i
           class="fa-solid fa-magnifying-glass "></i></a>
 
     </form>
@@ -53,6 +53,37 @@ header.innerHTML = `  <!-- nav bar  -->
 //set link to the account
 const id = 1001;
 document.getElementById('SignInLogInHyperLink').style.cssText ="cursor : pointer;";
-document.getElementById('SignInLogInHyperLink').addEventListener('click',function(){
-  window.location.assign(`SignInLogIn.html?q=${id}`);
-});
+document.getElementById('SignInLogInHyperLink').setAttribute('href','SignInLogIn.html');
+
+
+const searchItem = () =>{
+  const searchedText = document.getElementById('search-field-text').value;
+  let searched_URL_Text = '';
+  for(let i = 0; i<searchedText.length ;i++){
+    if(searchedText[i] === '@'){
+      searched_URL_Text+= '%40';
+
+    }else if(searchedText[i] === '%'){
+      searched_URL_Text+= '%25';
+    }else if(searchedText[i] === ' '){
+      searched_URL_Text+= '%20';
+    }else if(searchedText[i] === '&'){
+      searched_URL_Text+= '%26';
+    }else if(searchedText[i] === '+'){
+      searched_URL_Text+= '%2B';
+    }else if(searchedText[i] === '?'){
+      searched_URL_Text+= '%3F';
+    }else if(searchedText[i] === '$'){
+      searched_URL_Text+= '%24';
+    }else if(searchedText[i] === '#'){
+      searched_URL_Text+= '%23';
+    }else{
+      searched_URL_Text+= searchedText[i];
+    }
+   
+  }
+    let url= `ShowCase.html?q=http://gsmarena-api.herokuapp.com/search/${searched_URL_Text}&dataIn=false`;
+  
+    // console.log(url);
+  location.assign(url);
+}
