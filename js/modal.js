@@ -1,4 +1,4 @@
-// const fakeData = '{"title":"Apple iPhone 13 Pro Max","img":"https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-13-pro-max.jpg","img_url":"apple_iphone_13_pro_max-pictures-11089.php","quick_spec":[{"name":"Display size","value":"6.7\""},{"name":"Display resolution","value":"1284x2778 pixels"},{"name":"Camera pixels","value":"12MP\n      "},{"name":"Video pixels","value":"2160p"},{"name":"RAM size","value":"6GB RAM"},{"name":"Shipset","value":"Apple A15 Bionic"},{"name":"Battery size","value":"4352mAh"},{"name":"Battery type","value":"Li-Ion"}]}';
+
 let returnedData;
 
 const loadQuickSpec = () => {
@@ -61,7 +61,8 @@ const modalEmpty = () => {
 }
 
 
-
+/*_____________________START_____________________*/
+/*________when user clicked the eye Icon it will start executing________*/
 function CORSSolve(url) {
   document.getElementById('staticBackdropLabel').style.display =  'block';
   document.getElementById('modal-card').textContent = '';
@@ -85,6 +86,5 @@ function CORSSolve(url) {
   xhttp.send()
 }
 
-// CORSSolve('https://cors-anywhere.herokuapp.com/http://gsmarena-api.herokuapp.com/device/apple_iphone_13_pro_max-11089');
 
 

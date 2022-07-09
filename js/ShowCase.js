@@ -2,58 +2,69 @@ const fakeData = '{"data":[{"name":"iPhone SE (2022)","img":"https://fdn2.gsmare
 
 
 // get item from url 
-var parseQueryString = function() {
+var parseQueryString = function () {
   var str = window.location.search;
   var objURL = {};
 
   str.replace(
-      new RegExp( "([^?=&]+)(=([^&]*))?", "g" ),
-      function( $0, $1, $2, $3 ){
-          objURL[ $1 ] = $3;
-      }
+    new RegExp("([^?=&]+)(=([^&]*))?", "g"),
+    function ($0, $1, $2, $3) {
+      objURL[$1] = $3;
+    }
   );
   return objURL;
 };
- const showErrorMsg = msg =>{
+
+
+
+
+//error and messaage while load or error
+const showErrorMsg = msg => {
   const PhoneContainer = document.getElementById('show-case-container');
 
-  PhoneContainer.innerHTML =`
+  PhoneContainer.innerHTML = `
     <p style="text-align:center; color :red; font-weight:bold;">${msg}</p>
   ` ;
- }
+}
+
+
 // stop hover three option in card if the screen is less than 576px
 const HoverShowOrNot = () => {
   document.getElementById('companyName').innerText = 'hdsfhshdf';
-    if (screen.width < 576) {
-      const selects =  document.getElementsByClassName('hover-content');
-      for(var i =0;i<selects.length;i++){
-        selects[i].style.display ='none';
-     }
-    
+  if (screen.width < 576) {
+    const selects = document.getElementsByClassName('hover-content');
+    for (var i = 0; i < selects.length; i++) {
+      selects[i].style.display = 'none';
     }
-  }
 
-  
-  function CORSSolve(url) {
-    const xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function () {
-      if (this.readyState == 4 && this.status == 200) {  
-        const returnedData = JSON.parse(xhttp.responseText);
-        if(returnedData.data.length !== 0){
-          
-          displayPhone(returnedData.data);
-        }else{
-          showErrorMsg('No phone By this Name');
-        }
-         
-      }
-    };
-    //https://cors-anywhere.herokuapp.com/corsdemo
-    xhttp.open("GET", url, true);
-    xhttp.send()
   }
-  
-//  adding image in show case 
+}
+
+//fetch data from UI
+function CORSSolve(url) {
+  const xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function () {
+    if (this.readyState == 4 && this.status == 200) {
+      const returnedData = JSON.parse(xhttp.responseText);
+      if (returnedData.data.length !== 0) {
+
+        displayPhone(returnedData.data);
+      } else {
+        showErrorMsg('No phone By this Name');
+      }
+
+    }
+  };
+  //https://cors-anywhere.herokuapp.com/corsdemo
+  xhttp.open("GET", url, true);
+  xhttp.send()
+}
+
+/*  adding image in show case 
+
+    *ShowPhoneALlDetailPageLoad(transfers_the _phone_url) to laod the full data set page of the image --href to the detailView.html & detailView.js
+    *CORSSolve('transfers_the _phone_url') to laod the modal of quick spec view --href to the modal.js
+*/
 const displayPhone = phones => {
   const PhoneContainer = document.getElementById('show-case-container');
   PhoneContainer.textContent = '';
@@ -61,9 +72,9 @@ const displayPhone = phones => {
     const col = document.createElement('div');
     col.classList.add('col', 'd-flex', 'justify-content-center');
     col.innerHTML = `
-    <div class="card "  id="${phone.url}">
+    <div class="card "  id="${phone.url}" >
     <div class="card-body">
-      <img src="${phone.img}" class="card-img-top" alt="...">
+      <img src="${phone.img}" class="card-img-top" alt="..." onclick="ShowPhoneALlDetailPageLoad('${phone.url}')">
    </div>         
    <div class="card-footer border-0">
      <h5 class="card-title text-center">${phone.name}</h5>       
@@ -89,11 +100,9 @@ const displayPhone = phones => {
 const loadPhoneShowCaseURL = () => {
 
 
-const clickedBrand = parseQueryString();
-   showErrorMsg('Loading.....');
-  const url = `https://cors-anywhere.herokuapp.com/http://gsmarena-api.herokuapp.com/brand/${Object.values(clickedBrand)[0]}`;
-
-
+  const clickedBrand = parseQueryString();
+  showErrorMsg('Loading.....');
+  const url = `https://cors-anywhere.herokuapp.com/${Object.values(clickedBrand)[0]}`;  //url from the search query to get the exact phones data
   //  ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓  uncomment FOR LOAD DATA  ↓ ↓ ↓ ↓ ↓ ↓ 
   CORSSolve(url);
 
@@ -101,8 +110,23 @@ const clickedBrand = parseQueryString();
   // const raw = JSON.parse(fakeData).data; displayPhone(raw);
 }
 
+/* ---- making the show case of the clicked brand of previous page ----- */
+/*___________________________START ____________________________________*/
 loadPhoneShowCaseURL();
 
 
 // need to be in last ----Turn off hover content
 HoverShowOrNot();
+
+
+
+/* href to detailView Page */
+//clicked brand detail
+const ShowPhoneALlDetailPageLoad = ImageUrl => {
+
+
+  let url = `detailView.html?q=https://cors-anywhere.herokuapp.com/http://gsmarena-api.herokuapp.com/device/${ImageUrl}`;
+  location.assign(url)
+
+
+}

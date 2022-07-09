@@ -19,13 +19,10 @@ window.addEventListener('keyup', function (event) {
        
     }
 });
+
+
+
  const searchPhone = ()=>{
-    // console.log('get search command');
-     const text = document.getElementById('search-field-text').innerText;
-      //get data from API
-      const url = `https://openapi.programming-hero.com/api/phone/${text}`;
-      fetch(url)
-          .then(res => res.json())
-          .then(data => document.write(data));
+    console.log('get search command');
   
  }
