@@ -32,15 +32,19 @@
 
     <div class="forms-container">
       <div class="signin-signup">
-        <form action="#" class="sign-in-form">
+        <form action="/logincheck" class="sign-in-form" method="post">
           <h2 class="title">Sign in</h2>
           <div class="input-field">
             <i class="fas fa-user"></i>
-            <input type="text" placeholder="Username" />
+            <input type="text" placeholder="Username" name="Username"/>
+          </div>
+          <div class="input-field">
+            <i class="fas fa-envelope"></i>
+            <input type="email" placeholder="Email" name="email"/>
           </div>
           <div class="input-field">
             <i class="fas fa-lock"></i>
-            <input type="password" placeholder="Password" id="pass_field" />
+            <input type="password" placeholder="Password" id="pass_field" name="password"/>
             <i class="fas fa-eye" id="showPass" title="Show Password"></i>
           </div>
           <input type="submit" value="Login" class="btn solid" />
@@ -60,19 +64,24 @@
             </a>
           </div>
         </form>
-        <form action="#" class="sign-up-form">
+        <form action="/register" class="sign-up-form" method="post">
           <h2 class="title">Sign up</h2>
           <div class="input-field">
             <i class="fas fa-user"></i>
-            <input type="text" placeholder="Username" />
+            <input type="text" placeholder="Username" name="Username"/>
           </div>
           <div class="input-field">
             <i class="fas fa-envelope"></i>
-            <input type="email" placeholder="Email" />
+            <input type="email" placeholder="Email" name="email"/>
           </div>
           <div class="input-field">
             <i class="fas fa-lock"></i>
-            <input type="password" placeholder="Password" id="pass_field2" />
+            <input type="password" placeholder="Password" id="pass_field2" name="password"/>
+            <i class="fas fa-eye" id="showPass2" title="Show Password"></i>
+          </div>
+          <div class="input-field">
+            <i class="fas fa-lock"></i>
+            <input type="password" placeholder="Confirm Password" id="pass_field2" name="c_password"/>
             <i class="fas fa-eye" id="showPass2" title="Show Password"></i>
           </div>
           <input type="submit" class="btn" value="Sign up" />
