@@ -96,9 +96,9 @@ const displayPhone = phones => {
    </div>
     <div class="hover-content">
       <ul class="mx-2 mx-sm-2 mx-md-3 px-0 d-flex flex-wrap justify-content-between text-decoration-none list-unstyled fs-4">
-        <li><a href=""><i class="fa-brands fa-gratipay text-dark"></i></a></li>
-        <li><a href=""  id="${phone.url}"  onclick="ShowPhoneALlDetailPageLoad('${phone.url}')" ><i class="fa-solid fa-bars text-dark"></i></a></li>
-        <li><a onclick="CORSSolve('${phone.url}')" id="${phone.url}" href="" data-bs-toggle="modal" data-bs-target="#one"><i
+        <li><a ><i class="fa-brands fa-gratipay text-dark"></i></a></li>
+        <li><a onclick="ShowPhoneALlDetailPageLoad('${phone.url}')"   ><i class="fa-solid fa-bars text-dark"></i></a></li>
+        <li><a onclick="CORSSolve('${phone.url}')"  data-bs-toggle="modal" data-bs-target="#one"><i
           class="fa-solid fa-eye text-dark"></i></a></li>
         </ul>
       </div>

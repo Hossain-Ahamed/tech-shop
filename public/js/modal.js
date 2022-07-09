@@ -51,7 +51,7 @@ const setModal = nameOfImage => {
          <ul class="list-group list-group-flush" id="modal-card-ul">
               
        </ul>
-       <p> Price : ${}</p>
+       <p> Price : </p>
        <div class="d-grid gap-2 col-6 mx-auto">
                <button style="cursor: pointer;" class="btn btn-primary" type="button" onclick="cartAdd('${returnedData.title}')">Add to Cart</button>
           </div>
