@@ -56,6 +56,12 @@ const sign_in_btn = document.querySelector("#sign-in-btn");
       changeType('pass_field2', 'showPass2');
     });
 
+    //hide and show pass event listener
+    document.getElementById('showPass3').addEventListener('click', function () {
+      this.classList.toggle('fa-eye-slash');
+      changeType('pass_field3', 'showPass3');
+    });
+
 
   const returnedValue = parseQueryString();
   // console.log(returnedValue);
