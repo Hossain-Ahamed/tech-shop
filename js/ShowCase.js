@@ -35,7 +35,7 @@ const HoverShowOrNot = () => {
     document.getElementById('companyName').innerText = 'MayerDoaTech';
     const selects = document.getElementsByClassName('hover-content');
     for (var i = 0; i < selects.length; i++) {
-      selects[i].style.display = 'none';
+      selects[i].textContent= '';
      
     }
 

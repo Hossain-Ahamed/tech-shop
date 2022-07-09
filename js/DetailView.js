@@ -70,7 +70,10 @@ const setPage = () => {
     <div class="card">
       <div class="card-body">
           <ul class="list-group list-group-flush" id="detail-view-ul"></ul>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
+          <div class="d-grid gap-2 col-6 mx-auto">
+               <button style="cursor: pointer;" class="btn btn-primary" type="button" onclick="cartAdd('${returnedData.title}')">Add to Cart</button>
+          </div>
+       
       </div>
     </div>
   </div>
