@@ -1,5 +1,6 @@
 
 let returnedData;
+let taka;
 
 const loadQuickSpec = () => {
 
@@ -29,7 +30,12 @@ const loadQuickSpec = () => {
 
 }
 
+const getBDT = ()=>{
+  stringOfPrice = returnedData.spec_detail[12].specs[4].value;
+  let dollarPatter
 
+
+}
 
 
 // modal set up for the clicked phone 
@@ -45,6 +51,7 @@ const setModal = nameOfImage => {
          <ul class="list-group list-group-flush" id="modal-card-ul">
               
        </ul>
+       <p> Price : ${}</p>
        <div class="d-grid gap-2 col-6 mx-auto">
                <button style="cursor: pointer;" class="btn btn-primary" type="button" onclick="cartAdd('${returnedData.title}')">Add to Cart</button>
           </div>
