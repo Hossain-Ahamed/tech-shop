@@ -63,10 +63,10 @@ const showAllPhoneOfClickedBrand = urlID =>{
 
   // console.log(event.srcElement.id);
   let id = event.srcElement.id;
-  let url= `ShowCase.html?q=http://gsmarena-api.herokuapp.com/brand/${id}`;
+  let url= `ShowCase.html?q=http://gsmarena-api.herokuapp.com/brand/${id}&dataIn=true`;
 
 
-location.assign(url)
+location.assign(url);
   
  
 }
