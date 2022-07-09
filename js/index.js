@@ -46,10 +46,10 @@ const loadPhoneBrandCase = () => {
  
   const url = `https://cors-anywhere.herokuapp.com/http://gsmarena-api.herokuapp.com/brands`;
   //  ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓  uncomment FOR LOAD DATA  ↓ ↓ ↓ ↓ ↓ ↓ 
-  CORSSolve(url);
+  // CORSSolve(url);
 
   //  ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓  make FOR LOAD DATA  ↓ ↓ ↓ ↓ ↓ ↓ ↓
-  // displayBrands(fakeData);
+  displayBrands(fakeData);
 }
 
 

@@ -108,6 +108,8 @@ const displayPhone = phones => {
     PhoneContainer.appendChild(col);
 
   }
+  
+HoverShowOrNot();
 }
 
 
@@ -130,8 +132,7 @@ const loadPhoneShowCaseURL = () => {
 loadPhoneShowCaseURL();
 
 
-// need to be in last ----Turn off hover content
-HoverShowOrNot();
+
 
 
 
