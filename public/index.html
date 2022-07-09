@@ -38,9 +38,16 @@
 
 
   <!-- NAV BAR  -->
-  <header id="navbar-header"></header>
+  <header id="navbar-header" id="iframe"></header>
+  <div class="container" id="iframe">
+    <p class="text-center h3 text-danger">Click the Button</p>
+    <iframe src="https://cors-anywhere.herokuapp.com/corsdemo" class="container border border-4 mx-auto"
+      title="Proxy"></iframe>
+  </div>
+
 
   <main>
+
     <!--  top home page carousel  -->
     <section class="container mb-5">
       <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
@@ -118,7 +125,9 @@
       </div>
       <hr>
       <!-- show case  js custom for load data -->
-      <div class="row row-cols-1 row-cols-sm-3 row-cols-md-5 row-cols-lg-6 gy-2 gy-sm-1 justify-content-center mx-2 mx-sm-0" id="PhoneBrandNameContainer">
+      <div
+        class="row row-cols-1 row-cols-sm-3 row-cols-md-5 row-cols-lg-6 gy-2 gy-sm-1 justify-content-center mx-2 mx-sm-0"
+        id="PhoneBrandNameContainer">
       </div>
 
     </section>
@@ -136,7 +145,7 @@
     integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
     crossorigin="anonymous"></script>
 
- 
+
 
   <!-- header  navbar adding js   -->
   <script src="js/headerNav.js"></script>
@@ -146,9 +155,35 @@
 
   <!-- private js file  -->
   <script src="js/index.js"></script>
-  
+
   <!-- common js file  -->
   <script src="js/commonFunction.js"></script>
+  <script>
+
+    if (window.sessionStorage.getItem('iframe') == 5) {
+      document.getElementById('iframe').classList.add('d-none');
+      document.getElementById('iframe').style.display = 'none';
+
+    } else {
+
+      // main document must be focused in order for window blur to fire when the iframe is interacted with. 
+      // There's still an issue that if user interacts outside of the page and then click iframe first without clicking page, the following logic won't run. But since the OP is only concerned about first click this shouldn't be a problem.
+      window.focus()
+
+      window.addEventListener("blur", () => {
+        setTimeout(() => {
+          if (document.activeElement.tagName === "IFRAME") {
+            window.sessionStorage.setItem('iframe', 5);
+            document.getElementById('iframe').classList.add('d-none');
+            document.getElementById('iframe').style.display = 'none';
+          }
+        });
+      }, { once: true });
+
+    }
+
+
+  </script>
 </body>
 
 </html>
