@@ -20,14 +20,14 @@ const port = process.env.PORT || 5003;
 
 const db = mysql.createConnection({
 
-    // host : 'localhost',
-    // user : 'root',
-    // password : '',
-    // database : 'tech-shop'
-    host : 'bjn9yajxknszeuvhgczi-mysql.services.clever-cloud.com',
-    user : 'uve5k169sb891uxy',
-    password : 'SzDHDl2UNNEWJwgOFQxe',
-    database : 'bjn9yajxknszeuvhgczi'
+    host : 'localhost',
+    user : 'root',
+    password : '',
+    database : 'tech-shop'
+    // host : 'bjn9yajxknszeuvhgczi-mysql.services.clever-cloud.com',
+    // user : 'uve5k169sb891uxy',
+    // password : 'SzDHDl2UNNEWJwgOFQxe',
+    // database : 'bjn9yajxknszeuvhgczi'
 });
 
 db.connect((err) =>{
@@ -314,6 +314,37 @@ app.post('/register' , function (req, res){
 
     
 });
+
+
+app.post('/priceList' , function(req,res){
+
+    const phone_code = req.body.phone_code;
+    const price = req.body.price;
+    const availability = req.body.availability;
+    db.query('SELECT * FROM pricelist WHERE phoneCode = ?',[phone_code], (err,result) =>{
+
+      if(err){
+          console.log(err);
+      }
+      if(result.length == 0){
+          db.query('INSERT INTO `pricelist` SET ? ', {phoneCode : phone_code , availability: availability, price : price}, (err,result)=>{
+            if(err){
+              console.log(err);
+          }
+
+          })
+      }else{
+        db.query('UPDATE `pricelist` SET `availability`= ? ,`price`= ?  WHERE phoneCode = ?' , [availability,price,phone_code],(err, result)=>{
+          if(err){
+            console.log(err);
+        }
+        })
+
+      }
+
+    })
+})
+
 
 app.post('/signout', function (req, res) {
     

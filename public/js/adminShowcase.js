@@ -75,7 +75,7 @@ const displayPhone = phones => {
     <img src="${phone.img}" class="img-fluid col-1"
         alt="" style="height: 70%;">
     <p class="col-4 text-center my-auto" style="font-size: 1.25rem;">${phone.name}</p>
-    <form action="" class="col-7 row d-flex align-items-center">
+    <form action="/priceList" method = "post"class="col-7 row d-flex align-items-center">
         <label class="col-5" for="availability">Availability :
             <select name="availability" required>
                 <option value="Available">Available</option>
