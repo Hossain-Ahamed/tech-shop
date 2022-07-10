@@ -27,10 +27,11 @@ header.innerHTML = `  <!-- nav bar  -->
     <div class="collapse navbar-collapse top-navigation-bar flex-grow-0 " id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0 align-items-center ">
         
-        <li class="nav-item">
-          <a class="nav-link" id="SignInLogInHyperLink" href="/login" ><i class="fa-solid fa-user"></i>
-            Account</a>
-        </li>
+      <li class="nav-item">
+      <form action="/adminSignOut" method="post">
+          <a class="nav-link" type="submit" id="SignInLogInHyperLink" style="cursor: pointer;" ><i class="fa-solid fa-user"></i>Account</a>
+      </form>
+  </li>
        
       </ul>
     </div>
