@@ -58,6 +58,7 @@ app.use(
     })
   );
 
+
 // This middleware will check if user's cookie is still saved in browser and user is not set, then automatically log the user out.
 // This usually happens when you stop your express server after login, your cookie still remains saved in the browser.
 app.use((req, res, next) => {
@@ -89,18 +90,43 @@ app.use((req, res, next) => {
 app.get('/', function(req, res) {
   res.sendFile(path.join(__dirname, './public/index.html'));
 });
-// app.get('/about', function(req, res) {
-//   res.sendFile(path.join(__dirname, '/About.html'));
-// });
+
+
 app.get('/login',sessionChecker, function(req, res) {
   // res.sendFile(path.join(__dirname, './public/SignInLogIn.ejs'));
   res.render('pages/SignInLogIn',{reso : "",
-reso1 : ""});
+  reso1 : ""});
 });
+
+
 // app.get('/contact', function(req, res) {
-//   res.sendFile(path.join(__dirname, '/contact.html'));
-// });
-app.get('/profile',function(req, res) {
+  //   res.sendFile(path.join(__dirname, './public/Contact.html'));
+  // });
+
+
+  app.get('/admin', function(req, res) {
+    res.sendFile(path.join(__dirname, './public/adminlogin.html'));
+  });
+
+
+  app.get('/AdminProfile', function(req, res) {
+
+    const check = req.cookies.Admin
+
+    db.query('SELECT * FROM admin WHERE Admin_Name =?',[check], (err,result) =>{
+    
+      if(err){
+          console.log(err);
+      }
+      if(check == result[0]['Admin_Name'])
+    res.sendFile(path.join(__dirname, './public/adminProfile.html'));
+
+    })
+  });
+
+
+
+  app.get('/profile',function(req, res) {
   if (req.session.user && req.cookies.user_sid) {
     // res.sendFile(path.join(__dirname, './public/profile.html'));
     const email = req.cookies.Email;
@@ -159,6 +185,40 @@ app.post('/login' , function async(req, res){
                 res.cookie("Email", Email);       
                 req.session.user = Email;
                 res.redirect('/profile');  
+            }
+       }
+       else{
+        const reso ="user not register";
+        // res.render('pages/SignInLogIn',{reso : reso, reso1 : ""})
+        return res.render('pages/SignInLogIn',{reso : reso, reso1 : ""});
+       }
+
+       
+    });
+  
+});
+app.post('/adminlogin' , function async(req, res){
+    const userName = req.body.UserName;
+    const Email = (req.body.Email).toLowerCase();
+    const password = req.body.password;
+
+    //db.query('SELECT * FROM user WHERE email = ?',[Email], async(err,result) =>{
+    db.query('SELECT Admin_Password FROM admin WHERE Admin_Name =? and Admin_Email = ?',[userName,Email], async(err,result) =>{
+    
+        if(err){
+            console.log(err);
+        }
+        console.log(result);
+    
+       // using hash password compare
+
+       if(result.length > 0){
+        // const test = await bcrypt.compare(password, result[0]['Password']);
+        //     console.log(test);
+            if(result[0]['Admin_Password'] == password){
+                console.log(req.body);
+                res.cookie("Admin",userName);
+                res.redirect('/adminProfile');   
             }
        }
        else{

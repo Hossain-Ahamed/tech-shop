@@ -28,7 +28,7 @@ header.innerHTML = `  <!-- nav bar  -->
       <ul class="navbar-nav me-auto mb-2 mb-lg-0 align-items-center ">
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="#"><i class="fa-solid fa-square-phone"></i>
-            +12345678xxx</a>
+          +8801868726172</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" id="SignInLogInHyperLink" href="/login" ><i class="fa-solid fa-user"></i>
