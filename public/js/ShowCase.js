@@ -121,10 +121,10 @@ const loadPhoneShowCaseURL = () => {
   showErrorMsg('Loading.....');
   const url = `https://cors-anywhere.herokuapp.com/${Object.values(clickedBrand)[0]}`;  //url from the search query to get the exact phones data
   //  ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓  uncomment FOR LOAD DATA  ↓ ↓ ↓ ↓ ↓ ↓ 
-  // CORSSolve(url);
+  CORSSolve(url);
 
   //  ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓  make FOR LOAD DATA  ↓ ↓ ↓ ↓ ↓ ↓ ↓
-  const raw = JSON.parse(fakeData).data; displayPhone(raw);
+  // const raw = JSON.parse(fakeData).data; displayPhone(raw);
 }
 
 /* ---- making the show case of the clicked brand of previous page ----- */
