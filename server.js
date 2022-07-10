@@ -83,6 +83,9 @@ app.use((req, res, next) => {
   };
   var adminsessionChecker = (req, res, next) => {
     const check = req.cookies.Admin
+    if(check === undefined){
+      res.redirect('/admin');
+    }else{
     console.log(check);
 
     db.query('SELECT * FROM admin WHERE Admin_Name =?',[check], (err,result) =>{
@@ -99,6 +102,7 @@ app.use((req, res, next) => {
       }
 
     })
+  }
     
  
   };
@@ -134,6 +138,10 @@ app.get('/login',sessionChecker, function(req, res) {
 
   app.get('/AdminProfile',adminsessionChecker, function(req, res) {
     res.sendFile(path.join(__dirname, './public/adminProfile.html'));
+    
+  });
+  app.get('/AdminShowCase',adminsessionChecker, function(req, res) {
+    res.sendFile(path.join(__dirname, './public/adminShowCase.html'));
     
   });
 
