@@ -28,8 +28,9 @@ header.innerHTML = `  <!-- nav bar  -->
       <ul class="navbar-nav me-auto mb-2 mb-lg-0 align-items-center ">
         
       <li class="nav-item">
-      <form action="/adminSignOut" method="post">
-          <a class="nav-link" type="submit" id="SignInLogInHyperLink" style="cursor: pointer;" ><i class="fa-solid fa-user"></i>Account</a>
+      <form action="/adminSignOut" method="post" class = "d-flex align-items-center">
+      <i class="fa-solid fa-door-open"></i>
+          <input type="submit" class="nav-link border border-0 bg-transparent" style="cursor: pointer;" value ="Signout">
       </form>
   </li>
        
