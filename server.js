@@ -20,10 +20,14 @@ const port = process.env.PORT || 5003;
 
 const db = mysql.createConnection({
 
-    host : 'localhost',
-    user : 'root',
-    password : '',
-    database : 'tech-shop'
+    // host : 'localhost',
+    // user : 'root',
+    // password : '',
+    // database : 'tech-shop'
+    host : 'bjn9yajxknszeuvhgczi-mysql.services.clever-cloud.com',
+    user : 'uve5k169sb891uxy',
+    password : 'SzDHDl2UNNEWJwgOFQxe',
+    database : 'bjn9yajxknszeuvhgczi'
 });
 
 db.connect((err) =>{
