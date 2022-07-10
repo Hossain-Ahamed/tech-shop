@@ -27,21 +27,6 @@ const showErrorMsg = msg => {
   ` ;
 }
 
-
-// stop hover three option in card if the screen is less than 576px
-const HoverShowOrNot = () => {
-  
-  if (screen.width < 576) {
-    document.getElementById('companyName').innerText = 'MayerDoaTech';
-    const selects = document.getElementsByClassName('hover-content');
-    for (var i = 0; i < selects.length; i++) {
-      selects[i].textContent= '';
-     
-    }
-
-  }
-}
-
 //fetch data from UI
 function CORSSolve(url) {
   const xhttp = new XMLHttpRequest();
@@ -76,8 +61,6 @@ function CORSSolve(url) {
 }
 
 /*  adding image in show case 
-
-    *ShowPhoneALlDetailPageLoad(transfers_the _phone_url) to laod the full data set page of the image --href to the detailView.html & detailView.js
     *CORSSolve('transfers_the _phone_url') to laod the modal of quick spec view --href to the modal.js
 */
 const displayPhone = phones => {
@@ -85,31 +68,33 @@ const displayPhone = phones => {
   PhoneContainer.textContent = '';
   for (phone of phones) {
     const col = document.createElement('div');
-    col.classList.add('col', 'd-flex', 'justify-content-center');
+    col.classList.add('col-12','border','border-1' ,'d-flex','my-1', 'align-items-center','row');
+    col.style.cssText = 'height: 5em;'
     col.innerHTML = `
-    <div class="card "  id="${phone.url}" >
-    <div class="card-body">
-      <img src="${phone.img}" class="card-img-top" alt="..." onclick="ShowPhoneALlDetailPageLoad('${phone.url}')">
-   </div>         
-   <div class="card-footer border-0">
-     <h5 class="card-title text-center">${phone.name}</h5>       
-   </div>
-    <div class="hover-content">
-      <ul class="mx-2 mx-sm-2 mx-md-3 px-0 d-flex flex-wrap justify-content-between text-decoration-none list-unstyled fs-4">
-        <li><a ><i class="fa-brands fa-gratipay text-dark"></i></a></li>
-        <li><a onclick="ShowPhoneALlDetailPageLoad('${phone.url}')"   ><i class="fa-solid fa-bars text-dark"></i></a></li>
-        <li><a onclick="CORSSolve('${phone.url}')"  data-bs-toggle="modal" data-bs-target="#one"><i
-          class="fa-solid fa-eye text-dark"></i></a></li>
-        </ul>
-      </div>
-    </div>       
-          
-            `;
+
+    <img src="${phone.img}" class="img-fluid col-1"
+        alt="" style="height: 70%;">
+    <p class="col-4 text-center my-auto" style="font-size: 1.25rem;">${phone.name}</p>
+    <form action="" class="col-7 row d-flex align-items-center">
+        <label class="col-5" for="availability">Availability :
+            <select name="availability" required>
+                <option value="Available">Available</option>
+                <option value="NotAvailable">Not Available</option>
+            </select>
+        </label>
+        <input class="col-4" type="number"  name="price" placeholder="Price" required>
+        <input type="hidden" name="phone_code" value="${phone.url}">
+        <div class=" col-3 d-grid gap-2 d-flex justify-content-center">
+            <input class=" btn btn-secondary " type="submit">
+        </div>
+    </form>
+    `;
     PhoneContainer.appendChild(col);
 
   }
   
-HoverShowOrNot();
+  
+
 }
 
 
@@ -121,10 +106,10 @@ const loadPhoneShowCaseURL = () => {
   showErrorMsg('Loading.....');
   const url = `https://cors-anywhere.herokuapp.com/${Object.values(clickedBrand)[0]}`;  //url from the search query to get the exact phones data
   //  ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓  uncomment FOR LOAD DATA  ↓ ↓ ↓ ↓ ↓ ↓ 
-  // CORSSolve(url);
+  CORSSolve(url);
 
   //  ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓  make FOR LOAD DATA  ↓ ↓ ↓ ↓ ↓ ↓ ↓
-  const raw = JSON.parse(fakeData).data; displayPhone(raw);
+  // const raw = JSON.parse(fakeData).data; displayPhone(raw);
 }
 
 /* ---- making the show case of the clicked brand of previous page ----- */
@@ -138,11 +123,11 @@ loadPhoneShowCaseURL();
 
 /* href to detailView Page */
 //clicked brand detail
-const ShowPhoneALlDetailPageLoad = ImageUrl => {
+// const ShowPhoneALlDetailPageLoad = ImageUrl => {
 
 
-  let url = `detailView.html?q=https://cors-anywhere.herokuapp.com/http://gsmarena-api.herokuapp.com/device/${ImageUrl}`;
-  location.assign(url);
+//   let url = `detailView.html?q=https://cors-anywhere.herokuapp.com/http://gsmarena-api.herokuapp.com/device/${ImageUrl}`;
+//   location.assign(url);
 
 
-}
+// }
