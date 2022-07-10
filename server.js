@@ -65,6 +65,7 @@ app.use((req, res, next) => {
     if (req.cookies.user_sid && !req.session.user) {
       res.clearCookie("user_sid");
       res.clearCookie("Email")
+      res.clearCookie("Admin");
     }
     next();
   });
@@ -80,6 +81,27 @@ app.use((req, res, next) => {
     }
  
   };
+  var adminsessionChecker = (req, res, next) => {
+    const check = req.cookies.Admin
+    console.log(check);
+
+    db.query('SELECT * FROM admin WHERE Admin_Name =?',[check], (err,result) =>{
+    
+      if(err){
+          console.log(err);
+      }
+      if(check == result[0]['Admin_Name']){
+        
+        
+        next();
+      }else{
+        res.redirect('/admin');
+      }
+
+    })
+    
+ 
+  };
 
 
 
@@ -88,6 +110,7 @@ app.use((req, res, next) => {
 
 
 app.get('/', function(req, res) {
+  res.clearCookie("Admin");
   res.sendFile(path.join(__dirname, './public/index.html'));
 });
 
@@ -109,19 +132,9 @@ app.get('/login',sessionChecker, function(req, res) {
   });
 
 
-  app.get('/AdminProfile', function(req, res) {
-
-    const check = req.cookies.Admin
-
-    db.query('SELECT * FROM admin WHERE Admin_Name =?',[check], (err,result) =>{
-    
-      if(err){
-          console.log(err);
-      }
-      if(check == result[0]['Admin_Name'])
+  app.get('/AdminProfile',adminsessionChecker, function(req, res) {
     res.sendFile(path.join(__dirname, './public/adminProfile.html'));
-
-    })
+    
   });
 
 

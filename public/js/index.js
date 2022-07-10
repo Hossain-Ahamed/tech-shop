@@ -62,18 +62,18 @@ loadPhoneBrandCase();
 const showAllPhoneOfClickedBrand = urlID =>{
 
   let id = event.srcElement.id;
-  if(location.pathname.includes('`/public/adminProfile.html`') ===  true || location.pathname.includes('/admin') ===  true || location.pathname.includes('/adminProfile.html') === true){
+  if(!(location.pathname.includes('`/public/adminProfile.html`') ===  true || location.pathname.includes('/admin') ===  true || location.pathname.includes('/adminProfile.html') === true)){
 
-    //_____________Admin____________________//
-    let url= `adminShowCase.html?q=http://gsmarena-api.herokuapp.com/brand/${id}&dataIn=true`;
-    location.assign(url);
-  }else{
     ///___________________client______________//
       let url= `ShowCase.html?q=http://gsmarena-api.herokuapp.com/brand/${id}&dataIn=true`;
-      location.assign(url);
+      // location.assign(url);
 
+  }else{
+    console.log("gotcha");
   }
+}
+
 
   
  
-}
+
