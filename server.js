@@ -63,6 +63,7 @@ app.use(
 app.use((req, res, next) => {
     if (req.cookies.user_sid && !req.session.user) {
       res.clearCookie("user_sid");
+      res.clearCookie("Email")
     }
     next();
   });
@@ -102,6 +103,23 @@ reso1 : ""});
 app.get('/profile',function(req, res) {
   if (req.session.user && req.cookies.user_sid) {
     // res.sendFile(path.join(__dirname, './public/profile.html'));
+    const email = req.cookies.Email;
+    console.log(email);
+
+    db.query('SELECT * FROM user WHERE Email = ?',[email], (err,result) =>{
+    
+      if(err){
+          console.log(err);
+      }
+
+      console.log(result);
+
+      res.render('pages/profile', {result : result[0]});
+
+
+    })
+
+    
     
   } else {
     res.redirect("/login");
@@ -138,13 +156,15 @@ app.post('/login' , function async(req, res){
             console.log(test);
             if(test){
                 console.log(req.body);
+                res.cookie("Email", Email);       
                 req.session.user = Email;
-                res.redirect('/profile');         
+                res.redirect('/profile');  
             }
        }
        else{
         const reso ="user not register";
-        res.render('pages/SignInLogIn',{reso : reso, reso1 : ""})
+        // res.render('pages/SignInLogIn',{reso : reso, reso1 : ""})
+        return res.render('pages/SignInLogIn',{reso : reso, reso1 : ""});
        }
 
        
@@ -173,12 +193,12 @@ app.post('/register' , function (req, res){
         }
 
         if(result.length>0){
-          res.render('pages/SignInLogIn',{reso1 : "Already used E-mail" , reso : ""});
+          return res.render('pages/SignInLogIn',{reso1 : "Already used E-mail" , reso : ""});
             
         }
         else if(password !== c_password){
 
-          res.render('pages/SignInLogIn',{reso1 : "Password Not Same", reso : ""});
+          return res.render('pages/SignInLogIn',{reso1 : "Password Not Same", reso : ""});
             
         }
         else if(password.length < 8){
@@ -202,6 +222,7 @@ app.post('/register' , function (req, res){
 
         console.log(req.body);
         req.session.user = email;
+        res.cookie("Email", email);
         res.redirect('/profile');
     }
     } )
@@ -212,6 +233,7 @@ app.post('/register' , function (req, res){
 app.post('/signout', function (req, res) {
     
       res.clearCookie("user_sid");
+      res.clearCookie("Email");
       res.redirect('/');
     
   });
