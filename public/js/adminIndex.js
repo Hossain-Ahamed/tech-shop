@@ -60,11 +60,8 @@ loadPhoneBrandCase();
 
 //clicked brand detail ------> href to ShowCase.html
 const showAllPhoneOfClickedBrand = urlID =>{
-
-  let id = event.srcElement.id;
-  
-    ///___________________client______________//
-      let url= `ShowCase.html?q=http://gsmarena-api.herokuapp.com/brand/${id}&dataIn=true`;
-      location.assign(url);
- 
+    //_____________Admin____________________//
+    let id = event.srcElement.id;
+    let url= `adminShowCase.html?q=http://gsmarena-api.herokuapp.com/brand/${id}&dataIn=true`;
+    location.assign(url);
 }
