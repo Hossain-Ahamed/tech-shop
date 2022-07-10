@@ -46,10 +46,10 @@ const loadPhoneBrandCase = () => {
  
   const url = `https://cors-anywhere.herokuapp.com/http://gsmarena-api.herokuapp.com/brands`;
   //  ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓  uncomment FOR LOAD DATA  ↓ ↓ ↓ ↓ ↓ ↓ 
-  // CORSSolve(url);
+  CORSSolve(url);
 
   //  ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓  make FOR LOAD DATA  ↓ ↓ ↓ ↓ ↓ ↓ ↓
-  displayBrands(fakeData);
+  // displayBrands(fakeData);
 }
 
 
@@ -61,12 +61,14 @@ loadPhoneBrandCase();
 //clicked brand detail ------> href to ShowCase.html
 const showAllPhoneOfClickedBrand = urlID =>{
 
-
+  let id = event.srcElement.id;
   if(location.pathname.includes('`/public/adminProfile.html`') ===  true || location.pathname.includes('/admin') ===  true || location.pathname.includes('/adminProfile.html') === true){
-    console.log('gotcha');
+
+    //_____________Admin____________________//
+    let url= `adminShowCase.html?q=http://gsmarena-api.herokuapp.com/brand/${id}&dataIn=true`;
+    location.assign(url);
   }else{
-      // console.log(event.srcElement.id);
-      let id = event.srcElement.id;
+    ///___________________client______________//
       let url= `ShowCase.html?q=http://gsmarena-api.herokuapp.com/brand/${id}&dataIn=true`;
       location.assign(url);
 
