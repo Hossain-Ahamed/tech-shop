@@ -289,6 +289,8 @@ app.post('/adminlogin' , function async(req, res){
                 console.log(req.body);
                 res.cookie("Admin",userName);
                 res.redirect('/adminProfile');   
+            }else{
+              return res.render('pages/SignInLogIn',{reso : "Password Doesnot match", reso1 : ""});
             }
        }
        else{
