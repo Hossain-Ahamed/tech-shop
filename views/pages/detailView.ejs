@@ -346,7 +346,7 @@
   if(cart[name]){
     document.getElementById('cartAddButton').innerText = 'Already Added';
   }else{
-     cart[name] = 1;
+     cart[name] = result_price;
   const cartStringified = JSON.stringify(cart);
   console.log(cartStringified);
   localStorage.setItem('cart',cartStringified);

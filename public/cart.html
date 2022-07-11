@@ -42,7 +42,53 @@
 
   <main class="container my-3" >
     <p class="ms-1 ms-sm-3 fw-bold text-dark fs-4 " id="phone-name"></p>
-    <div class="row" id="phone-detail-view-container">
+    <div class="row  justify-content-center my-5" id="cart-item-container">
+  
+     <div class="col-12 row my-1" style="height: 5em;">       
+      <form action="/cart" method = "post"class="col-12 row border border-1 my-1 d-flex align-items-center">
+        <p class="col-12 col-md-5 text-center text-md-start my-auto" style="font-size: 1.25rem;">${phone.name}</p>
+
+        <div class="col-md-4 center-item">
+          <div class="d-flex justify-content-between">
+            <div class="input-group number-spinner d-flex justify-content-between" style="width: 50%;">          
+              <button id="case-minus" class="btn btn-default"><i class="fas fa-minus"></i></button>
+              <input type="number" min="0" class="form-control text-center" id="case-number"
+              value="1" readonly>             
+              <button class="btn btn-default" id="case-plus"><i class="fas fa-plus"></i></button>              
+           </div>
+           <h5 class="ms-3 my-auto">734</h5>
+          </div>  
+       </div> 
+
+          <input type="hidden" name="phone_code" value="${phone.url}">
+          <div class="col-6 col-md-3 d-grid gap-2 d-flex justify-content-center">
+              <input class=" btn btn-secondary " type="submit">
+          </div>
+      </form>
+    </div>
+   
+     <div class="col-12 row" style="height: 5em;">       
+      <form action="/cart" method = "post"class="col-12 row border border-1 my-1 d-flex align-items-center">
+        <p class="col-12 col-md-5 text-center text-md-start my-auto" style="font-size: 1.25rem;">${phone.name}</p>
+
+        <div class="col-md-4 center-item">
+          <div class="d-flex justify-content-between">
+            <div class="input-group number-spinner d-flex justify-content-between" style="width: 50%;">          
+              <button id="case-minus" class="btn btn-default"><i class="fas fa-minus"></i></button>
+              <input type="number" min="0" class="form-control text-center" id="case-number"
+              value="1" readonly>             
+              <button class="btn btn-default" id="case-plus"><i class="fas fa-plus"></i></button>              
+           </div>
+           <h5 class="ms-3 my-auto">734</h5>
+          </div>  
+       </div> 
+
+          <input type="hidden" name="phone_code" value="${phone.url}">
+          <div class="col-6 col-md-3 d-grid gap-2 d-flex justify-content-center">
+              <input class=" btn btn-secondary " type="submit">
+          </div>
+      </form>
+    </div>
     </div>
 
 
