@@ -343,6 +343,9 @@
       }
       return cartObj;
     }
+
+
+
  const addProductToCart = name =>{
   // console.log(name);
   const cart = getCart();
@@ -358,20 +361,7 @@
  
 
  }
- //_________________CART SHOW_______________
-//display storage
- const displayProductFromStorage =() =>{
-  const cart = getCart();
-  for(const name in cart){
-    console.log(name);
-  }
- }
-//proceed to pay
- const ProceedToPay = () =>{
-  localStorage.removeItem('cart');
- }
-//  displayProductFromStorage();
-//  ________________________________________
+
 
 
     /*______________START________________*/

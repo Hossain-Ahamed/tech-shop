@@ -40,58 +40,13 @@
   <!-- NAV BAR  -->
   <header id="navbar-header"></header>
 
-  <main class="container my-3" >
-    <p class="ms-1 ms-sm-3 fw-bold text-dark fs-4 " id="phone-name"></p>
-    <div class="row  justify-content-center my-5" id="cart-item-container">
-  
-     <div class="col-12 row my-1" style="height: 5em;">       
-      <form action="/cart" method = "post"class="col-12 row border border-1 my-1 d-flex align-items-center">
-        <p class="col-12 col-md-5 text-center text-md-start my-auto" style="font-size: 1.25rem;">${phone.name}</p>
-
-        <div class="col-md-4 center-item">
-          <div class="d-flex justify-content-between">
-            <div class="input-group number-spinner d-flex justify-content-between" style="width: 50%;">          
-              <button id="case-minus" class="btn btn-default"><i class="fas fa-minus"></i></button>
-              <input type="number" min="0" class="form-control text-center" id="case-number"
-              value="1" readonly>             
-              <button class="btn btn-default" id="case-plus"><i class="fas fa-plus"></i></button>              
-           </div>
-           <h5 class="ms-3 my-auto">734</h5>
-          </div>  
-       </div> 
-
-          <input type="hidden" name="phone_code" value="${phone.url}">
-          <div class="col-6 col-md-3 d-grid gap-2 d-flex justify-content-center">
-              <input class=" btn btn-secondary " type="submit">
-          </div>
-      </form>
-    </div>
+  <main class="container my-3 position-relative" >
    
-     <div class="col-12 row" style="height: 5em;">       
-      <form action="/cart" method = "post"class="col-12 row border border-1 my-1 d-flex align-items-center">
-        <p class="col-12 col-md-5 text-center text-md-start my-auto" style="font-size: 1.25rem;">${phone.name}</p>
+    <div class="row  justify-content-center mb-5" id="cart-item-container">
 
-        <div class="col-md-4 center-item">
-          <div class="d-flex justify-content-between">
-            <div class="input-group number-spinner d-flex justify-content-between" style="width: 50%;">          
-              <button id="case-minus" class="btn btn-default"><i class="fas fa-minus"></i></button>
-              <input type="number" min="0" class="form-control text-center" id="case-number"
-              value="1" readonly>             
-              <button class="btn btn-default" id="case-plus"><i class="fas fa-plus"></i></button>              
-           </div>
-           <h5 class="ms-3 my-auto">734</h5>
-          </div>  
-       </div> 
-
-          <input type="hidden" name="phone_code" value="${phone.url}">
-          <div class="col-6 col-md-3 d-grid gap-2 d-flex justify-content-center">
-              <input class=" btn btn-secondary " type="submit">
-          </div>
-      </form>
-    </div>
     </div>
 
-
+    <button class="btn border border-1 text-dark my-0 text-end position-absolute end-0 top-100 bg-danger " onclick="clearCart()"title="clear cart"><i class="fa-solid fa-trash"></i></button>
 
 
   </main>
@@ -109,19 +64,60 @@
     crossorigin="anonymous"></script>
 
 <script>
+      const getCart = () => {
+      let cart = window.localStorage.getItem('cart');
+      let cartObj;
+      if (cart) {
+        cartObj = JSON.parse(cart); 
+      } else {
+        cartObj ={}
+      }
+      return cartObj;
+    }
   
 //display storage
 const displayProductFromStorage =() =>{
+  const cartContainer = document.getElementById('cart-item-container');
   const cart = getCart();
   for(const name in cart){
-    console.log(name);
+    const col = document.createElement('div');
+    col.classList.add('col-12','row','my-1');
+    // col.style.cssText = "height: 5em;";
+    col.innerHTML = `   
+      <form action="/cart" method = "post" class="col-12 row border border-1 m-1 d-flex align-items-center justify-content-center">
+        <p class="col-12 col-md-5 text-center text-md-start my-auto" style="font-size: 1.25rem;">${name}</p>
+
+        <div class="col-md-4 center-item mt-1 mt-md-0">
+          <div class="d-flex justify-content-between">
+            <div class="input-group number-spinner d-flex justify-content-between" style="width: 50%;">          
+              
+              <input type="number" min="0" max="5" name="phone_count" class="form-control text-center unit" value="1" contenteditable="false" >                           
+           </div>
+           <h5 class="ms-3 my-auto" >Price : ${cart[name]}</h5>
+          </div>  
+       </div> 
+          <input type="hidden" name="phone_name" value="${name}">
+          <input type="hidden" name="phone_price" value="${cart[name]}">
+          <div class="col-6 col-md-3 d-flex justify-content-center">
+              <input class=" btn btn-success my-1" value="Order" type="submit">
+          </div>
+      </form>
+    `;
+    cartContainer.appendChild(col);
+    // console.log(name);
+    // console.log(name,' ',(cart[name]===isNaN));
+
   }
  }
+
+
+
+
 //proceed to pay
- const ProceedToPay = () =>{
+ const clearCart = () =>{
   localStorage.removeItem('cart');
  }
- 
+ displayProductFromStorage();
 
 
 
