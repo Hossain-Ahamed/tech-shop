@@ -40,7 +40,7 @@
   <!-- NAV BAR  -->
   <header id="navbar-header"></header>
 
-  <main class="container my-3" >
+  <main class="container my-3">
     <p class="ms-1 ms-sm-3 fw-bold text-dark fs-4 " id="phone-name"></p>
     <div class="row" id="phone-detail-view-container">
     </div>
@@ -62,73 +62,73 @@
     integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
     crossorigin="anonymous"></script>
 
-<script>
+  <script>
 
 
     let result_price = '<%- result_price %>';
     let availability = '<%- result_availability %>'
-  
-let returnedData;
+
+    let returnedData;
 
 
-function getMoney(text) {
-  let pattern = /\s\$ [0-9]*,([+-]?(?=\.\d|\d)(?:\d+)?(?:\.?\d*))(?:[eE]([+-]?\d+))?/g ;
-  let result = text.match(pattern);
-  if (result === null) {
-      pattern = /\s\Rp [0-9]*,([+-]?(?=\.\d|\d)(?:\d+)?(?:\.?\d*))(?:[eE]([+-]?\d+))?,([0-9]*)?/g;
-      result = text.match(pattern);    
-      return (parseFloat(result[0].split('Rp')[1].trim().split(',').join(''))* 1.17);    
-  } 
-  else {  
-      return (parseFloat(result[0].split('$')[1].trim().split(',').join(''))*93);
-  }
-}
+    function getMoney(text) {
+      let pattern = /\s\$ [0-9]*,([+-]?(?=\.\d|\d)(?:\d+)?(?:\.?\d*))(?:[eE]([+-]?\d+))?/g;
+      let result = text.match(pattern);
+      if (result === null) {
+        pattern = /\s\Rp [0-9]*,([+-]?(?=\.\d|\d)(?:\d+)?(?:\.?\d*))(?:[eE]([+-]?\d+))?,([0-9]*)?/g;
+        result = text.match(pattern);
+        return (parseFloat(result[0].split('Rp')[1].trim().split(',').join('')) * 1.17);
+      }
+      else {
+        return (parseFloat(result[0].split('$')[1].trim().split(',').join('')) * 93);
+      }
+    }
 
-// get item from url 
-var parseQueryString = function () {
-    var str = window.location.search;
-    var objURL = {};
+    // get item from url 
+    var parseQueryString = function () {
+      var str = window.location.search;
+      var objURL = {};
 
-    str.replace(
+      str.replace(
         new RegExp("([^?=&]+)(=([^&]*))?", "g"),
         function ($0, $1, $2, $3) {
-            objURL[$1] = $3;
+          objURL[$1] = $3;
         }
-    );
-    return objURL;
-};
+      );
+      return objURL;
+    };
 
 
 
-//error and messaage while load or error
-const showErrorMsg = msg => {
-    const PhoneDetailViewContainer = document.getElementById('phone-name');
+    //error and messaage while load or error
+    const showErrorMsg = msg => {
+      const PhoneDetailViewContainer = document.getElementById('phone-name');
 
-    PhoneDetailViewContainer.innerHTML = `
+      PhoneDetailViewContainer.innerHTML = `
       ${msg}
     ` ;
-}
+    }
 
 
 
 
 
-// 5
-const loadQuickSpec = () => {
+    // 5
+    const loadQuickSpec = () => {
 
-    const ul = document.getElementById('detail-view-ul');
-    let string = '';
-    for (const index of returnedData.quick_spec) {
+      const ul = document.getElementById('detail-view-ul');
+      let string = '';
+      for (const index of returnedData.quick_spec) {
         let i = 1;
         for (const objects in index) {
-            string += index[objects];
-            if (Object.keys(index).length === i) {
-                i = 1;
-            } else {
-                string += " : ";
+          string += index[objects];
+          if (Object.keys(index).length === i) {
+            i = 1;
+          } else {
+            string += " : ";
 
-            }
-            i++;
+          }
+          i++;
         }
         string += '<br>';
         let li = document.createElement('li');
@@ -137,15 +137,15 @@ const loadQuickSpec = () => {
         ul.appendChild(li);
         string = '';
 
+      }
+
+
     }
-   
 
-}
+    const setPage = () => {
 
-const setPage = () => {
-    
-    const container = document.getElementById('phone-detail-view-container');
-    container.innerHTML = `
+      const container = document.getElementById('phone-detail-view-container');
+      container.innerHTML = `
     <div class="col-12 col-md-6 col-lg-4 d-flex justify-content-center">
     <img src="${returnedData.img}"
       class="img-fluid justify-content-center" id="phone-image" alt="">
@@ -159,7 +159,7 @@ const setPage = () => {
             </ul>
          
           <div class="d-grid gap-2 col-6 mx-auto">
-                <button style="cursor: pointer;" class="btn btn-primary" type="button" id="cartAddButton"  ${disbaledOnOFF()} onclick="cartAdd('${returnedData.title}' )">Add to Cart</button>
+                <button style="cursor: pointer;" class="btn btn-primary" type="button" id="cartAddButton"  ${disbaledOnOFF()} onclick="addProductToCart('${returnedData.title}' )">Add to Cart</button>
            </div>
        
       </div>
@@ -255,82 +255,124 @@ const setPage = () => {
 
     `;
 
-    showErrorMsg(returnedData.title);
-    // 4
-    loadQuickSpec();
-}
+      showErrorMsg(returnedData.title);
+      // 4
+      loadQuickSpec();
+    }
 
-/*_____________________START_____________________*/
-/*________when user clicked the eye Icon it will start executing________*/
-function CORSSolve(url) {
+    /*_____________________START_____________________*/
+    /*________when user clicked the eye Icon it will start executing________*/
+    function CORSSolve(url) {
 
-    //3
-    document.getElementById('phone-name').textContent = '';
-    document.getElementById('phone-name').textContent = '';
-    const xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function () {
+      //3
+      document.getElementById('phone-name').textContent = '';
+      document.getElementById('phone-name').textContent = '';
+      const xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
-            returnedData = JSON.parse(xhttp.responseText);
-            if (returnedData) {
-
-               
-                //set image 
-                // 3
-                setPage();
+          returnedData = JSON.parse(xhttp.responseText);
+          if (returnedData) {
 
 
-            } else {
-                showErrorMsg('No phone By this Name');
-            }
+            //set image 
+            // 3
+            setPage();
+
+
+          } else {
+            showErrorMsg('No phone By this Name');
+          }
 
         }
-    };
-    //https://cors-anywhere.herokuapp.com/corsdemo
-    xhttp.open("GET", url, true);
-    xhttp.send()
-}
+      };
+      //https://cors-anywhere.herokuapp.com/corsdemo
+      xhttp.open("GET", url, true);
+      xhttp.send()
+    }
 
 
 
-/*
-call the corrs solve  to laod the data from the API
-*/
-const loadDetailViewOfPhone = () => {
+    /*
+    call the corrs solve  to laod the data from the API
+    */
+    const loadDetailViewOfPhone = () => {
 
-    //  ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓  uncomment FOR LOAD DATA  ↓ ↓ ↓ ↓ ↓ ↓ 
+      //  ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓  uncomment FOR LOAD DATA  ↓ ↓ ↓ ↓ ↓ ↓ 
 
-    // 1
-    showErrorMsg('Loading.Please wait......');
-    const phoneUrl = parseQueryString();
+      // 1
+      showErrorMsg('Loading.Please wait......');
+      const phoneUrl = parseQueryString();
       //url from the search query to get the exact phones data
 
-    //2
-    //  ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓  uncomment FOR LOAD DATA  ↓ ↓ ↓ ↓ ↓ ↓ 
-    CORSSolve(Object.values(phoneUrl)[0]);
-    console.log("he")
+      //2
+      //  ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓  uncomment FOR LOAD DATA  ↓ ↓ ↓ ↓ ↓ ↓ 
+      CORSSolve(Object.values(phoneUrl)[0]);
+      console.log("he")
 
-}
-
-const availableOrNot = () =>{
-    if(availability==='Available'){
-      return result_price;
-    }else{
-      
-      return '<span class="fw-bold text-danger">Not Available</span>';
     }
-  }
-const disbaledOnOFF = () =>{
-    if(availability==='Available'){
-      return '';
-    }else{
-      
-      return 'disabled';
-    }
-  }
 
-/*______________START________________*/
-loadDetailViewOfPhone();
-</script>
+    const availableOrNot = () => {
+      if (availability === 'Available') {
+        return result_price;
+      } else {
+
+        return '<span class="fw-bold text-danger">Not Available</span>';
+      }
+    }
+    const disbaledOnOFF = () => {
+      if (availability === 'Available') {
+        return '';
+      } else {
+
+        return 'disabled';
+      }
+    }
+ 
+    const getCart = () => {
+      let cart = window.localStorage.getItem('cart');
+      let cartObj;
+      if (cart) {
+        cartObj = JSON.parse(cart);
+        // console.log(cartObj);  
+      } else {
+        cartObj ={}
+      }
+      return cartObj;
+    }
+ const addProductToCart = name =>{
+  // console.log(name);
+  const cart = getCart();
+  // console.log(cart);
+  if(cart[name]){
+    document.getElementById('cartAddButton').innerText = 'Already Added';
+  }else{
+     cart[name] = 1;
+  const cartStringified = JSON.stringify(cart);
+  console.log(cartStringified);
+  localStorage.setItem('cart',cartStringified);
+  }
+ 
+
+ }
+ //_________________CART SHOW_______________
+//display storage
+ const displayProductFromStorage =() =>{
+  const cart = getCart();
+  for(const name in cart){
+    console.log(name);
+  }
+ }
+//proceed to pay
+ const ProceedToPay = () =>{
+  localStorage.removeItem('cart');
+ }
+//  displayProductFromStorage();
+//  ________________________________________
+
+
+    /*______________START________________*/
+    loadDetailViewOfPhone();
+  </script>
 
   <!-- header  navbar adding js   -->
   <script src="js/headerNav.js"></script>
