@@ -43,10 +43,7 @@ header.innerHTML = `  <!-- nav bar  -->
             Account</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" id='' href="#">My wishlist</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link position-relative" href="#"><i class="fa-solid fa-cart-shopping"></i> Your cart
+          <a class="nav-link position-relative" href="/cart"><i class="fa-solid fa-cart-shopping"></i> Your cart
             <span id="cart-item-count"
               class="position-absolute top-1 start-100 translate-middle badge rounded-pill bg-dark">${cartItemCount()}
               <span class="visually-hidden">Item count</span></span>
