@@ -159,7 +159,11 @@
             </ul>
          
           <div class="d-grid gap-2 col-6 mx-auto">
-                <button style="cursor: pointer;" class="btn btn-primary" type="button" id="cartAddButton"  ${disbaledOnOFF()} onclick="addProductToCart('${returnedData.title}' )">Add to Cart</button>
+            <from action = "/login_check" method ="post">
+
+              <!-- <button style="cursor: pointer;" action = "/login_check" method ="post" class="btn btn-primary" type="button" id="cartAddButton"  ${disbaledOnOFF()} onclick="addProductToCart('${returnedData.title}' )">Add to Cart</button> -->
+              <input type ="submit" style="cursor: pointer;"  class="btn btn-primary" type="button" id="cartAddButton"  ${disbaledOnOFF()} onclick="addProductToCart('${returnedData.title}' value ="Add to Cart" )">
+              </from>
            </div>
        
       </div>
