@@ -48,12 +48,6 @@ header.innerHTML = `  <!-- nav bar  -->
               class="position-absolute top-1 start-100 translate-middle badge rounded-pill bg-dark">${cartItemCount()}
               <span class="visually-hidden">Item count</span></span>
           </a>
-        </li><li class="nav-item">
-          <a class="nav-link position-relative" href="/cart"><i class="fa-solid fa-cart-shopping"></i> Your cart
-            <span id="cart-item-count"
-              class="position-absolute top-1 start-100 translate-middle badge rounded-pill bg-dark">${cartItemCount()}
-              <span class="visually-hidden">Item count</span></span>
-          </a>
         </li>
       </ul>
     </div>
