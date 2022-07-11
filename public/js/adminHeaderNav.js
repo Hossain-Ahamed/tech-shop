@@ -27,7 +27,11 @@ header.innerHTML = `  <!-- nav bar  -->
 
     <div class="collapse navbar-collapse top-navigation-bar flex-grow-0 " id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0 align-items-center ">
+      <li class="nav-item">
+      <a class="nav-link position-relative" href="#"><i class="fa-solid fa-cart-shopping"></i> Orders
         
+      </a>
+    </li>
       <li class="nav-item">
       <form action="/adminSignOut" method="post" class = "d-flex align-items-center">
       <i class="fa-solid fa-door-open"></i>
