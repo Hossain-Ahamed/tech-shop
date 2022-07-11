@@ -64,6 +64,7 @@
 
 <script>
 
+
     let result_price = '<%- result_price %>';
     let availability = '<%- result_availability %>'
   
@@ -153,9 +154,12 @@ const setPage = () => {
     <div class="card">
       <div class="card-body">
           <ul class="list-group list-group-flush" id="detail-view-ul"></ul>
-          <p>Price : <span id="priceOfPhone">${result_price}</span> BDT</p>
+          <ul class="list-group list-group-flush" >
+               <li class="list-group-item">Price : <span id="priceOfPhone">${availableOrNot()}</span></li>
+            </ul>
+         
           <div class="d-grid gap-2 col-6 mx-auto">
-                <button style="cursor: pointer;" class="btn btn-primary" type="button" onclick="cartAdd('${returnedData.title}')">Add to Cart</button>
+                <button style="cursor: pointer;" class="btn btn-primary" type="button" id="cartAddButton"  ${disbaledOnOFF()} onclick="cartAdd('${returnedData.title}' )">Add to Cart</button>
            </div>
        
       </div>
@@ -306,6 +310,23 @@ const loadDetailViewOfPhone = () => {
     console.log("he")
 
 }
+
+const availableOrNot = () =>{
+    if(availability==='Available'){
+      return result_price;
+    }else{
+      
+      return '<span class="fw-bold text-danger">Not Available</span>';
+    }
+  }
+const disbaledOnOFF = () =>{
+    if(availability==='Available'){
+      return '';
+    }else{
+      
+      return 'disabled';
+    }
+  }
 
 /*______________START________________*/
 loadDetailViewOfPhone();
