@@ -1,3 +1,11 @@
+const cartItemCount = () =>{
+  const item = localStorage.getItem('cart');
+  if(item){
+        return Object.keys(JSON.parse(localStorage.getItem('cart'))).length;
+  }else{
+    return '0';
+  }
+}
 const header = document.getElementById('navbar-header');
 header.innerHTML = `  <!-- nav bar  -->
 <nav class="container  navbar navbar-expand-lg bg-light">
@@ -40,7 +48,7 @@ header.innerHTML = `  <!-- nav bar  -->
         <li class="nav-item">
           <a class="nav-link position-relative" href="#"><i class="fa-solid fa-cart-shopping"></i> Your cart
             <span id="cart-item-count"
-              class="position-absolute top-1 start-100 translate-middle badge rounded-pill bg-dark">${Object.keys(JSON.parse(localStorage.getItem('cart'))).length}
+              class="position-absolute top-1 start-100 translate-middle badge rounded-pill bg-dark">${cartItemCount()}
               <span class="visually-hidden">Item count</span></span>
           </a>
         </li>

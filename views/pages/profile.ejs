@@ -27,9 +27,10 @@
   <header id="navbar-header"></header>
 
   <div class="container">
-    
+
     <ul class="list-group list-group-flush">
-      <li class="list-group-item border border-0 my-0"><h5 class="m-0 ">Profile :</h5>
+      <li class="list-group-item border border-0 my-0">
+        <h5 class="m-0 ">Profile :</h5>
       </li>
       <li class="list-group-item">Name : <%= result.User_Name %>
       </li>
@@ -67,7 +68,15 @@
   <!-- common js file  -->
   <script src="js/commonFunction.js"></script>
   <script>
-    document.getElementById('cartSize').innerText = Object.keys(JSON.parse(localStorage.getItem('cart'))).length;
+    const cartItemCount = () => {
+      const item = localStorage.getItem('cart');
+      if (item) {
+        return Object.keys(JSON.parse(localStorage.getItem('cart'))).length;
+      } else {
+        return '0';
+      }
+    }
+    document.getElementById('cartSize').innerText = cartItemCount();
   </script>
 </body>
 
