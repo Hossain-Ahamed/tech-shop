@@ -20,14 +20,14 @@ const port = process.env.PORT || 5003;
 
 const db = mysql.createConnection({
 
-    host : 'localhost',
-    user : 'root',
-    password : '',
-    database : 'tech-shop'
-    // host : 'bjn9yajxknszeuvhgczi-mysql.services.clever-cloud.com',
-    // user : 'uve5k169sb891uxy',
-    // password : 'SzDHDl2UNNEWJwgOFQxe',
-    // database : 'bjn9yajxknszeuvhgczi'
+    // host : 'localhost',
+    // user : 'root',
+    // password : '',
+    // database : 'tech-shop'
+    host : 'bjn9yajxknszeuvhgczi-mysql.services.clever-cloud.com',
+    user : 'uve5k169sb891uxy',
+    password : 'SzDHDl2UNNEWJwgOFQxe',
+    database : 'bjn9yajxknszeuvhgczi'
 });
 
 db.connect((err) =>{
@@ -129,6 +129,36 @@ app.get('/login',sessionChecker, function(req, res) {
   reso1 : ""});
 });
 
+app.get('/detailView',sessionChecker, function(req, res) {
+  // res.sendFile(path.join(__dirname, './public/SignInLogIn.ejs'));
+  // res.render('pages/detailView' ,{result_price : "", result_availability : ""});
+  const url = req.url;
+  const split_url=url.split("/");
+
+  const phone_code =split_url[8];
+
+  console.log(split_url[8]);
+  console.log(req.url);
+  db.query('SELECT * FROM pricelist WHERE phoneCode = ?',[phone_code], (err,result) =>{
+
+    if(err){
+        console.log(err);
+    }
+    if(result.length >0 ){
+      res.render('pages/detailView',{result_price : result[0]['price'], result_availability : result[0]['availability']});
+    }else{
+      res.render('pages/detailView',{result_price : "", result_availability : ""});
+      
+    }
+
+  })
+});
+
+
+app.get('/ShowCase',sessionChecker, function(req, res) {
+  res.sendFile(path.join(__dirname, './public/ShowCase.html'));
+  // res.render('pages/detailView');
+});
 
 // app.get('/contact', function(req, res) {
   //   res.sendFile(path.join(__dirname, './public/Contact.html'));

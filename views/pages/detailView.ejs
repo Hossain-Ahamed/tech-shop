@@ -63,6 +63,9 @@
     crossorigin="anonymous"></script>
 
 <script>
+
+    let result_price = '<%- result_price %>';
+    let availability = '<%- result_availability %>'
   
 let returnedData;
 
@@ -150,7 +153,7 @@ const setPage = () => {
     <div class="card">
       <div class="card-body">
           <ul class="list-group list-group-flush" id="detail-view-ul"></ul>
-          <p>Price : <span id="priceOfPhone">1000</span> BDT</p>
+          <p>Price : <span id="priceOfPhone">${result_price}</span> BDT</p>
           <div class="d-grid gap-2 col-6 mx-auto">
                 <button style="cursor: pointer;" class="btn btn-primary" type="button" onclick="cartAdd('${returnedData.title}')">Add to Cart</button>
            </div>
@@ -300,6 +303,7 @@ const loadDetailViewOfPhone = () => {
     //2
     //  ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓  uncomment FOR LOAD DATA  ↓ ↓ ↓ ↓ ↓ ↓ 
     CORSSolve(Object.values(phoneUrl)[0]);
+    console.log("he")
 
 }
 

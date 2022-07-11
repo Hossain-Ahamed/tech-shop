@@ -141,7 +141,8 @@ loadPhoneShowCaseURL();
 const ShowPhoneALlDetailPageLoad = ImageUrl => {
 
 
-  let url = `detailView.html?q=https://cors-anywhere.herokuapp.com/http://gsmarena-api.herokuapp.com/device/${ImageUrl}`;
+  // let url = `detailView.html?q=https://cors-anywhere.herokuapp.com/http://gsmarena-api.herokuapp.com/device/${ImageUrl}`;
+  let url =ejs.render( `detailView?q=https://cors-anywhere.herokuapp.com/http://gsmarena-api.herokuapp.com/device/${ImageUrl}`);
   location.assign(url);
 
 

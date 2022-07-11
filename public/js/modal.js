@@ -17,6 +17,11 @@ function getMoney(text) {
       return (parseFloat(result[0].split('$')[1].trim().split(',').join('')) *93);
   }
 }
+const loadMoney = ()=>{
+  html = ejs.render('<%= people %>', {people: 'hello'});
+document.getElementById('priceOfPhone').innerHTML = html;
+console.log("gotcha")
+}
 
 
 const loadQuickSpec = () => {
@@ -44,8 +49,10 @@ const loadQuickSpec = () => {
     
   }
   document.getElementById('staticBackdropLabel').style.display =  'none';
+  loadMoney();
 
 }
+
 
 
 
@@ -62,7 +69,7 @@ const setModal = nameOfImage => {
          <ul class="list-group list-group-flush" id="modal-card-ul">
               
          </ul>
-         <p>Price : <span id="priceOfPhone">225000</span> BDT</p>
+         <p>Price : <span id="priceOfPhone"></span></p>
          <div class="d-grid gap-2 col-6 mx-auto">
                <button style="cursor: pointer;" class="btn btn-primary" type="button" onclick="cartAdd('${returnedData.title}')">Add to Cart</button>
           </div>
@@ -73,7 +80,9 @@ const setModal = nameOfImage => {
    
   `;
   loadQuickSpec();
+  
 }
+
 
 
 // empty the modal data 
