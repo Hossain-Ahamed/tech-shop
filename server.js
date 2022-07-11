@@ -85,15 +85,7 @@ app.use((req, res, next) => {
     }
  
   };
-  var cartsessionChecker = (req, res, next) => {
-    console.log(req.session.user && req.cookies.user_sid);
-    if (req.session.user && req.cookies.user_sid) {
-      res.render('pages/detailView',{result_price : "", result_availability : ""});
-    } else {
-      next();
-    }
- 
-  };
+
   var adminsessionChecker = (req, res, next) => {
     const check = req.cookies.Admin
     if(check === undefined){
@@ -140,11 +132,6 @@ app.get('/login',sessionChecker, function(req, res) {
 app.get('/cart',sessionChecker, function(req, res) {
   // res.sendFile(path.join(__dirname, './public/SignInLogIn.ejs'));
   res.render('pages/cart');
-});
-app.post('/login_check',cartsessionChecker, function(req, res) {
-  // res.sendFile(path.join(__dirname, './public/SignInLogIn.ejs'));
-  res.render('pages/SignInLogIn',{reso : "",
-  reso1 : ""});
 });
 
 app.get('/detailView',sessionChecker, function(req, res) {
