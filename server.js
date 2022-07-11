@@ -97,7 +97,8 @@ app.use((req, res, next) => {
   };
 
   var adminsessionChecker = (req, res, next) => {
-    const check = req.cookies.Admin
+    const check = req.cookies.Admin;
+    const pass = req.body.password;
     if(check === undefined){
       res.redirect('/admin');
     }else{
@@ -109,6 +110,7 @@ app.use((req, res, next) => {
           console.log(err);
       }
       if(check == result[0]['Admin_Name']){
+
         
         
         next();
@@ -144,7 +146,7 @@ app.get('/cart',cartsessionChecker, function(req, res) {
   res.render('pages/cart',{massage : ""});
 });
 
-app.get('/detailView',sessionChecker, function(req, res) {
+app.get('/detailView', function(req, res) {
   // res.sendFile(path.join(__dirname, './public/SignInLogIn.ejs'));
   // res.render('pages/detailView' ,{result_price : "", result_availability : ""});
   const url = req.url;
@@ -170,7 +172,7 @@ app.get('/detailView',sessionChecker, function(req, res) {
 });
 
 
-app.get('/ShowCase',sessionChecker, function(req, res) {
+app.get('/ShowCase', function(req, res) {
   res.sendFile(path.join(__dirname, './public/ShowCase.html'));
   // res.render('pages/detailView');
 });
@@ -290,13 +292,13 @@ app.post('/adminlogin' , function async(req, res){
                 res.cookie("Admin",userName);
                 res.redirect('/adminProfile');   
             }else{
-              return res.render('pages/SignInLogIn',{reso : "Password Doesnot match", reso1 : ""});
+              res.redirect('/admin');
             }
        }
        else{
         const reso ="user not register";
         // res.render('pages/SignInLogIn',{reso : reso, reso1 : ""})
-        return res.render('pages/SignInLogIn',{reso : reso, reso1 : ""});
+       res.redirect('/');
        }
 
        
