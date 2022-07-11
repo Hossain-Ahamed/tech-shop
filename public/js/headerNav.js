@@ -40,7 +40,7 @@ header.innerHTML = `  <!-- nav bar  -->
         <li class="nav-item">
           <a class="nav-link position-relative" href="#"><i class="fa-solid fa-cart-shopping"></i> Your cart
             <span id="cart-item-count"
-              class="position-absolute top-1 start-100 translate-middle badge rounded-pill bg-dark">99
+              class="position-absolute top-1 start-100 translate-middle badge rounded-pill bg-dark">${Object.keys(JSON.parse(localStorage.getItem('cart'))).length}
               <span class="visually-hidden">Item count</span></span>
           </a>
         </li>
