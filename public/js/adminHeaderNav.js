@@ -77,7 +77,7 @@ const searchItem = () =>{
       }
      
     }
-      let url= `adminShowCase.html?q=http://gsmarena-api.herokuapp.com/search/${searched_URL_Text}&dataIn=false`;
+      let url= `adminShowCase?q=http://gsmarena-api.herokuapp.com/search/${searched_URL_Text}&dataIn=false`;
     
     //   console.log(url);
     location.assign(url);

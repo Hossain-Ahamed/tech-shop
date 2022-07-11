@@ -179,7 +179,7 @@ app.get('/ShowCase',sessionChecker, function(req, res) {
     res.sendFile(path.join(__dirname, './public/adminProfile.html'));
     
   });
-  app.get('/AdminShowCase',adminsessionChecker, function(req, res) {
+  app.get('/adminShowCase',adminsessionChecker, function(req, res) {
     res.sendFile(path.join(__dirname, './public/adminShowCase.html'));
     
   });
@@ -356,6 +356,7 @@ app.post('/priceList' , function(req,res){
     const phone_code = req.body.phone_code;
     const price = req.body.price;
     const availability = req.body.availability;
+    const url = req.url;
     db.query('SELECT * FROM pricelist WHERE phoneCode = ?',[phone_code], (err,result) =>{
 
       if(err){
@@ -368,12 +369,14 @@ app.post('/priceList' , function(req,res){
           }
 
           })
+          res.redirect('back');
       }else{
         db.query('UPDATE `pricelist` SET `availability`= ? ,`price`= ?  WHERE phoneCode = ?' , [availability,price,phone_code],(err, result)=>{
           if(err){
             console.log(err);
         }
         })
+        res.redirect('back');
 
       }
 
