@@ -85,6 +85,16 @@ app.use((req, res, next) => {
     }
  
   };
+  var cartsessionChecker = (req, res, next) => {
+    console.log(req.session.user && req.cookies.user_sid);
+    if (req.session.user && req.cookies.user_sid) {
+      next();
+    } else {
+      res.render('pages/SignInLogIn',{reso : "",
+    reso1 : ""});
+    }
+ 
+  };
 
   var adminsessionChecker = (req, res, next) => {
     const check = req.cookies.Admin
@@ -129,9 +139,9 @@ app.get('/login',sessionChecker, function(req, res) {
   res.render('pages/SignInLogIn',{reso : "",
   reso1 : ""});
 });
-app.get('/cart',sessionChecker, function(req, res) {
+app.get('/cart',cartsessionChecker, function(req, res) {
   // res.sendFile(path.join(__dirname, './public/SignInLogIn.ejs'));
-  res.render('pages/cart');
+  res.render('pages/cart',{massage : ""});
 });
 
 app.get('/detailView',sessionChecker, function(req, res) {
@@ -381,7 +391,24 @@ app.post('/priceList' , function(req,res){
       }
 
     })
-})
+});
+
+app.post('/order',function (req,res){
+
+  const email = req.cookies.Email;
+  const phone_code = req.body.phone_name;
+  const price = req.body.phone_price;
+  const quantity = req.body.phone_count;
+
+  db.query('INSERT INTO `order_Item` SET ?',{Email : email , Phone_code : phone_code , Quantity : quantity , Price_per : price }, (err , result) =>{
+    if(err){
+      console.log(err);
+  }
+  return res.render('pages/cart',{massage : "Order Succesfully Added we will contact you letter through Email "})
+  });
+  // res.send("Order Succesfully Added we will contact you letter through Email");
+  // res.redirect('back');
+});
 
 
 app.post('/signout', function (req, res) {

@@ -45,7 +45,7 @@
   <header id="navbar-header"></header>
 
   <main class="container my-3 position-relative" >
-   
+    <%= massage %>
     <div class="row  justify-content-center mb-5" id="cart-item-container">
 
     </div>
@@ -88,14 +88,14 @@ const displayProductFromStorage =() =>{
     col.classList.add('col-12','row','my-1');
     // col.style.cssText = "height: 5em;";
     col.innerHTML = `   
-      <form action="/cart" method = "post" class="col-12 row border border-1 m-1 d-flex align-items-center justify-content-center">
+      <form action="/order" method = "post" class="col-12 row border border-1 m-1 d-flex align-items-center justify-content-center">
         <p class="col-12 col-md-5 text-center text-md-start my-auto" style="font-size: 1.25rem;">${name}</p>
 
         <div class="col-md-4 center-item mt-1 mt-md-0">
           <div class="d-flex justify-content-between">
             <div class="input-group number-spinner d-flex justify-content-between" style="width: 50%;">          
               
-              <input type="number" min="0" max="5" name="phone_count" class="form-control text-center unit" value="1" contenteditable="false" >                           
+              <input type="number" min="0" max="5" name="phone_count" value = "1" class="form-control text-center unit" >                           
            </div>
            <h5 class="ms-3 my-auto" >Price : ${cart[name]}</h5>
           </div>  
