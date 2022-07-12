@@ -121,17 +121,18 @@
       <div class="btn-toolbar d-flex justify-content-center" role="toolbar" id="show-case-options-buttons"
         aria-label="Toolbar with button groups">
         <div class="btn-group me-2" role="group" aria-label="First group">
-          <button type="button" class="btn btn-primary">Phone</button>
+          <button type="button" class="btn btn-primary" disabled>Phone</button>
         </div>
         <div class="btn-group me-2" role="group" aria-label="Second group">
-          <button type="button" class="btn btn-secondary">Laptop</button>
+          <button type="button" class="btn btn-secondary" disabled>Laptop</button>
         </div>
         <div class="btn-group" role="group" aria-label="Third group">
-          <button type="button" class="btn btn-info">Tablet</button>
+          <button type="button" class="btn btn-info" disabled>Tablet</button>
         </div>
       </div>
       <hr>
       <!-- show case  js custom for load data -->
+      <h5 class="text-muted my-2 ms-1 ms-md-3 text-center">Phone Brands</h5>
       <div
         class="row row-cols-1 row-cols-sm-3 row-cols-md-5 row-cols-lg-6 gy-2 gy-sm-1 justify-content-center mx-2 mx-sm-0"
         id="PhoneBrandNameContainer">
@@ -172,27 +173,27 @@
   <script src="js/commonFunction.js"></script>
   <script>
 
-    if (window.sessionStorage.getItem('iframe') == 5) {
-      document.getElementById('iframe').classList.add('d-none');
-      document.getElementById('iframe').style.display = 'none';
+    // if (window.sessionStorage.getItem('iframe') == 5) {
+    //   document.getElementById('iframe').classList.add('d-none');
+    //   document.getElementById('iframe').style.display = 'none';
 
-    } else {
+    // } else {
 
-      // main document must be focused in order for window blur to fire when the iframe is interacted with. 
-      // There's still an issue that if user interacts outside of the page and then click iframe first without clicking page, the following logic won't run. But since the OP is only concerned about first click this shouldn't be a problem.
-      window.focus()
+    //   // main document must be focused in order for window blur to fire when the iframe is interacted with. 
+    //   // There's still an issue that if user interacts outside of the page and then click iframe first without clicking page, the following logic won't run. But since the OP is only concerned about first click this shouldn't be a problem.
+    //   window.focus()
 
-      window.addEventListener("blur", () => {
-        setTimeout(() => {
-          if (document.activeElement.tagName === "IFRAME") {
-            window.sessionStorage.setItem('iframe', 5);
-            document.getElementById('iframe').classList.add('d-none');
-            document.getElementById('iframe').style.display = 'none';
-          }
-        });
-      }, { once: true });
+    //   window.addEventListener("blur", () => {
+    //     setTimeout(() => {
+    //       if (document.activeElement.tagName === "IFRAME") {
+    //         window.sessionStorage.setItem('iframe', 5);
+    //         document.getElementById('iframe').classList.add('d-none');
+    //         document.getElementById('iframe').style.display = 'none';
+    //       }
+    //     });
+    //   }, { once: true });
 
-    }
+    // }
 
 
   </script>

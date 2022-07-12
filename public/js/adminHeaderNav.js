@@ -28,7 +28,7 @@ header.innerHTML = `  <!-- nav bar  -->
     <div class="collapse navbar-collapse top-navigation-bar flex-grow-0 " id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0 align-items-center ">
       <li class="nav-item">
-      <a class="nav-link position-relative" href="#"><i class="fa-solid fa-cart-shopping"></i> Orders
+      <a class="nav-link position-relative" onclick = "empty()"><i class="fa-solid fa-cart-shopping"></i> Orders
         
       </a>
     </li>
@@ -50,6 +50,9 @@ header.innerHTML = `  <!-- nav bar  -->
 // document.getElementById('SignInLogInHyperLink').style.cssText ="cursor : pointer;";
 // document.getElementById('SignInLogInHyperLink').setAttribute('href','SignInLogIn.html');
 
+const empty =() =>{
+  window.alert("Not Added Yet!!!");
+}
 
 const searchItem = () =>{
     const searchedText = document.getElementById('search-field-text').value;
