@@ -46,7 +46,7 @@
   <!-- NAV BAR  -->
   <header id="navbar-header"></header>
 
-  <main class="container my-3 ">
+  <main class="container-fluid container-md my-3 p-0">
     <ul class="list-group list-group-flush mx-1  mx-md-5">
       <li class="list-group-item border border-0 my-0 ">
         <h5 class="m-0 "><i class="fa-solid fa-address-card mx-1 text-success"></i><span class="">Profile</span></h5>
@@ -56,19 +56,18 @@
       </li>
       <li class="list-group-item">Email Address : <%= email %>
       </li>
-      <li class="list-group-item">Your point : 00</li>
-      <li class="list-group-item">Cart Item : 
-        <section class="container-fluid mb-5">
+      <li class="list-group-item">Your point : Not Added Yet</li>
+      <li class="list-group-item mt-3"><h5><i class="fa-solid fa-cart-shopping mx-1 text-secondary"></i><span class="">Order</span></h5>
+        <section class="container-fluid my-5 p-0">
            
-          <div class=" row mb-2 border-bottom text-primary">
+          <div class=" row m-0 mb-md-2 border-bottom text-primary">
              
-                  <p class="col-1 text-center my-auto" style="font-size: 1.25rem;">ID</p>
-                  <p class="col-2 text-center my-auto " style="font-size: 1.25rem;">E-mail</p>
-                  <p class="col-2 text-center my-auto" style="font-size: 1.25rem;">Phone Name</p>
-                  <p class="col-1 text-center my-auto" style="font-size: 1.25rem;">Qt</p>
-                  <p class="col-2 text-center my-auto" style="font-size: 1.25rem;">Status</p>
-                  <p class="col-2 text-center my-auto" style="font-size: 1.25rem;">Price</p>
-                  <p class="col-2 text-center my-auto" style="font-size: 1.25rem;">Update</p>
+                  <p class="col-1 text-end my-auto d-none d-md-block" style="font-size: 1.25rem;">ID</p>
+                  <p class="col-5 col-md-3 text-center my-auto" style="font-size: 1.25rem;">Phone Name</p>
+                  <p class="col-2 col-md-2 text-center my-auto" style="font-size: 1.25rem;">Qt</p>
+                  <p class="col-5 col-md-2 text-center my-auto" style="font-size: 1.25rem;">Status</p>
+                  <p class="col-2 text-center my-auto d-none d-md-block" style="font-size: 1.25rem;">Price</p>
+                  <p class="col-2 text-center my-auto d-none d-md-block" style="font-size: 1.25rem;">Update</p>
                 
              
           </div>
@@ -79,12 +78,11 @@
       <div class="row-cols-1 gy-2 gy-md-4 justify-content-center">
           <div class="col  border-bottom">
               <form action="/cancel" method="post" class="row justify-content-center align-items-center">
-                  <p class="col-1 text-center my-auto" style="font-size: 1.25rem;"><%= item.orderId %></p>
-                  <p class="col-2 text-center my-auto overflow-hidden" style="font-size: 1.25rem;"><%= item.Email %></p>
-                  <p class="col-2 text-center my-auto" style="font-size: 1.25rem;"><%= item.Phone_code %></p>
-                  <p class="col-1 text-center my-auto" style="font-size: 1.25rem;"><%= item.Quantity %></p>
-                  <p class="col-2 text-center my-auto" style="font-size: 1.25rem;"><%= item.Status %></p>
-                  <p class="col-2 text-center my-auto" style="font-size: 1.25rem;"><%= item.Price %></p>
+                  <p class="col-1 text-end my-auto d-none d-md-block" style="font-size: 1.25rem;"><%= item.orderId %></p>
+                  <p class="col-5 col-md-3 text-center my-auto" style="font-size: 1.25rem;"><%= item.Phone_code %></p>
+                  <p class="col-2 col-md-2 text-center my-auto" style="font-size: 1.25rem;"><%= item.Quantity %></p>
+                  <p class="col-5 col-md-2 text-center my-auto" style="font-size: 1.25rem;"><%= item.Status %></p>
+                  <p class="col-2 text-center my-auto d-none d-md-block" style="font-size: 1.25rem;"><%= item.Price %></p>
 
                   <input type="hidden" name="orderID" value="<%= item.orderId %>">
                   <input type="hidden" name="email" value="<%= item.Email %>">
@@ -92,7 +90,7 @@
                   <input type="hidden" name="quantity" value="<%= item.Quantity %>">
                   <input type="hidden" name="price" value="<%= item.Price %>">
                   <input type="hidden" name="status" value="Cancelled">
-                  <div class=" col-2 d-grid gap-2 d-flex justify-content-center my-1">
+                  <div class=" col-2 d-grid gap-2 d-none d-md-flex justify-content-center my-1 ">
                       <input class=" btn btn-danger " type="submit" value="Cancel">
                   </div>
               </form>
