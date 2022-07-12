@@ -69,22 +69,26 @@ const displayPhone = phones => {
   for (phone of phones) {
     const col = document.createElement('div');
     col.classList.add('col-12','border','border-1' ,'d-flex','my-1', 'align-items-center','row');
-    col.style.cssText = 'height: 5em;'
+    // col.style.cssText = 'height: 5em;'
     col.innerHTML = `
 
-    <img src="${phone.img}" class="img-fluid col-1"
-        alt="" style="height: 70%;">
-    <p class="col-4 text-center my-auto" style="font-size: 1.25rem;">${phone.name}</p>
-    <form action="/priceList" method = "post"class="col-7 row d-flex align-items-center">
-        <label class="col-5" for="availability">Availability :
-            <select name="availability" required>
+    <img src="${phone.img}" class="img-fluid col-1  d-none d-md-block"
+        alt="" style="height: 70%;"> 
+    <p class="col-12 col-md-4 text-center my-auto" style="font-size: 1.25rem;">${phone.name}</p>
+    <form action="/priceList" method = "post"class="col-12 col-md-7 row d-flex align-items-center">
+        <label class="col-6 col-md-5 py-1 py-md-0" for="availability" >
+
+            <select name="availability" class=" form-select" aria-label="Status" required>
                 <option value="Available">Available</option>
                 <option value="NotAvailable">Not Available</option>
             </select>
         </label>
-        <input class="col-4" type="number"  name="price" placeholder="Price" required>
+        <div class="col-6 col-md-4 py-1 py-md-0">
+            <input class="form-control" type="number"  name="price" placeholder="Price" required>
+        </div>
+        
         <input type="hidden" name="phone_code" value="${phone.url}">
-        <div class=" col-3 d-grid gap-2 d-flex justify-content-center">
+        <div class="col-12  col-md-3 d-grid gap-2 py-1 py-md-0 d-flex justify-content-center">
             <input class=" btn btn-secondary " type="submit">
         </div>
     </form>

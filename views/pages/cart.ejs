@@ -121,7 +121,11 @@ const displayProductFromStorage =() =>{
 
 //proceed to pay
  const clearCart = () =>{
-  localStorage.removeItem('cart');
+  if(window.confirm('Clear the cart ?')===true){
+    localStorage.removeItem('cart');
+    location.assign('/');
+  }
+  
  }
  displayProductFromStorage();
 
