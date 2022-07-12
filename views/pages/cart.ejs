@@ -46,9 +46,27 @@
 
   <main class="container my-3 position-relative" >
     <%= massage %>
-    <div class="row  justify-content-center mb-5" id="cart-item-container">
+  
+      <div class="table-responsive">
+        <table class="table table-striped table-hover align-middle text-center">
 
+            <thead>
+                <tr>
+                    <th scope="col">Poduct Name</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Confirm Order</th>
+                </tr>
+            </thead>
+            <tbody  id="cart-item-container">
+                
+              
+            </tbody>
+
+        </table>
     </div>
+    
+    
 
     <button class="btn border border-1 text-dark my-0 text-end position-absolute end-0 top-100 bg-danger " onclick="clearCart()"title="clear cart"><i class="fa-solid fa-trash"></i></button>
 
@@ -84,30 +102,31 @@ const displayProductFromStorage =() =>{
   const cartContainer = document.getElementById('cart-item-container');
   const cart = getCart();
   for(const name in cart){
-    const col = document.createElement('div');
-    col.classList.add('col-12','row','my-1');
-    // col.style.cssText = "height: 5em;";
-    col.innerHTML = `   
-      <form action="/order" method = "post" class="col-12 row border border-1 m-1 d-flex align-items-center justify-content-center">
-        <p class="col-12 col-md-5 text-center text-md-start my-auto" style="font-size: 1.25rem;">${name}</p>
+    const tr = document.createElement('tr');
+    
+    tr.innerHTML = `   
+ 
+                    <form action="/order" method="post"
+                       >
+                        <th scope="row">${name}</th> 
+                        <td class="d-flex justify-content-center">
+                            <div class="input-group number-spinner" style="width: 50%;">
+                                <input type="number" min="0" max="5" name="phone_count" value="1" class="form-control text-center unit">
+                            </div>
+                        </td>
+                       <td>${cart[name]}</td>
+                        <td>
+                            <div class=" d-flex justify-content-center">
+                                <input class=" btn btn-success " value="Order" type="submit">
+                            </div>
+                        </td>
+                        <input type="hidden" name="phone_name" value="${name}">
+                        <input type="hidden" name="phone_price" value="${cart[name]}">
+                    </form>
 
-        <div class="col-md-4 center-item mt-1 mt-md-0">
-          <div class="d-flex justify-content-between">
-            <div class="input-group number-spinner d-flex justify-content-between" style="width: 50%;">          
               
-              <input type="number" min="0" max="5" name="phone_count" value = "1" class="form-control text-center unit" >                           
-           </div>
-           <h5 class="ms-3 my-auto" >Price : ${cart[name]}</h5>
-          </div>  
-       </div> 
-          <input type="hidden" name="phone_name" value="${name}">
-          <input type="hidden" name="phone_price" value="${cart[name]}">
-          <div class="col-6 col-md-3 d-flex justify-content-center">
-              <input class=" btn btn-success my-1" value="Order" type="submit">
-          </div>
-      </form>
     `;
-    cartContainer.appendChild(col);
+    cartContainer.appendChild(tr);
     // console.log(name);
     // console.log(name,' ',(cart[name]===isNaN));
 

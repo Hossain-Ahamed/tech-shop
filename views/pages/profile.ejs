@@ -46,10 +46,11 @@
   <!-- NAV BAR  -->
   <header id="navbar-header"></header>
 
-  <main class="container my-3">
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item border border-0 my-0">
-        <h5 class="m-0 ">Profile :</h5>
+  <main class="container my-3 ">
+    <ul class="list-group list-group-flush mx-1  mx-md-5">
+      <li class="list-group-item border border-0 my-0 ">
+        <h5 class="m-0 "><i class="fa-solid fa-address-card mx-1 text-success"></i><span class="">Profile</span></h5>
+       
       </li>
       <li class="list-group-item">Name : <%= result.User_Name %>
       </li>
@@ -57,16 +58,15 @@
       </li>
       <li class="list-group-item">Your point : 00</li>
       <li class="list-group-item">Cart Item : <span id="cartSize"></span></li>
-      <li class="list-group-item">
+      <li class="list-group-item d-flex justify-content-end">
         <form action="/signout" method="post">
-          <button class="btn border border-1 border-secondary" style="cursor:context-menu ;">
-            <i class="fa-solid fa-door-open"></i>
-            <input type="submit" class="btn border border-0" style="cursor: pointer;" value="Sign Out" />
+          <button class="btn border border-0 border-secondary d-flex align-items-center" style="cursor:context-menu ;">
+           <i class="fa-solid fa-arrow-right-from-bracket"></i>
+            <input type="submit" class="btn border border-0 "  style="color: red; cursor: pointer;" value="Logout" />
           </button>
-
         </form>
-
       </li>
+     
     </ul>
 
 
