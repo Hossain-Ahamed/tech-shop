@@ -145,6 +145,10 @@ app.get('/cart',cartsessionChecker, function(req, res) {
   // res.sendFile(path.join(__dirname, './public/SignInLogIn.ejs'));
   res.render('pages/cart',{massage : ""});
 });
+app.get('/adminOrderCheck',adminsessionChecker, function(req, res) {
+  // res.sendFile(path.join(__dirname, './public/SignInLogIn.ejs'));
+  res.render('pages/adminOrderConfirm',{result : ""});
+});
 
 app.get('/detailView', function(req, res) {
   // res.sendFile(path.join(__dirname, './public/SignInLogIn.ejs'));
@@ -202,19 +206,17 @@ app.get('/ShowCase', function(req, res) {
   if (req.session.user && req.cookies.user_sid) {
     // res.sendFile(path.join(__dirname, './public/profile.html'));
     const email = req.cookies.Email;
+    const name = req.cookies.Name;
     console.log(email);
 
-    db.query('SELECT * FROM user WHERE Email = ?',[email], (err,result) =>{
-    
+    db.query('SELECT * FROM `Order_Item` where Email =?',[email],(err, result)=>{
       if(err){
-          console.log(err);
-      }
-
-      console.log(result);
-
-      res.render('pages/profile', {result : result[0]});
-
-
+        console.log(err);
+    }
+    console.log(result);
+  
+    res.render('pages/profile',{result : result, email : email, name :name});
+      
     })
 
     
@@ -225,6 +227,34 @@ app.get('/ShowCase', function(req, res) {
 
   
 });
+
+app.post('/cancel', function (req,res){
+  const orderID = req.body.orderID;
+  const Email = req.body.email;
+  const phone_name = req.body.phone_name;
+  const quantity = req.body.quantity;
+  const price = req.body.price;
+  const status = req.body.status;
+  const email = req.cookies.Email;
+    const name = req.cookies.Name;
+    console.log(email);
+
+  db.query('DELETE FROM `Order_Item` WHERE `Order_Item`.`orderId` =?' ,[orderID] , (err , result)=>{
+    if(err){
+      console.log(err);
+    }
+  })
+  db.query('SELECT * FROM `Order_Item` where Email =?',[email],(err, result)=>{
+    if(err){
+      console.log(err);
+  }
+  console.log(result);
+
+  res.render('pages/profile',{result : result, email : email, name :name});
+    
+  })
+
+})
 
 
 
@@ -254,7 +284,8 @@ app.post('/login' , function async(req, res){
             console.log(test);
             if(test){
                 console.log(req.body);
-                res.cookie("Email", Email);       
+                res.cookie("Email", Email);  
+                res.cookie("Name",userName);     
                 req.session.user = Email;
                 res.redirect('/profile');  
             }
@@ -401,10 +432,11 @@ app.post('/order',function (req,res){
 
   const email = req.cookies.Email;
   const phone_code = req.body.phone_name;
-  const price = req.body.phone_price;
   const quantity = req.body.phone_count;
+  const price = (req.body.phone_price)*quantity;
+  const status = req.body.order_status;
 
-  db.query('INSERT INTO `order_Item` SET ?',{Email : email , Phone_code : phone_code , Quantity : quantity , Price_per : price }, (err , result) =>{
+  db.query('INSERT INTO `Order_Item` SET ?',{Email : email , Phone_code : phone_code , Quantity : quantity , Price : price, Status :status }, (err , result) =>{
     if(err){
       console.log(err);
   }
@@ -413,6 +445,51 @@ app.post('/order',function (req,res){
   // res.send("Order Succesfully Added we will contact you letter through Email");
   // res.redirect('back');
 });
+
+app.post('/adminOrderCheck', function (req,res){
+
+  db.query('SELECT * FROM `Order_Item` order by `orderId` DESC',(err, result)=>{
+    if(err){
+      console.log(err);
+  }
+  console.log(result);
+
+  res.render('pages/adminOrderConfirm',{result : result});
+    
+  })
+});
+
+
+app.post('/update',function (req,res){
+
+  const orderID = req.body.orderID;
+  const Email = req.body.email;
+  const phone_name = req.body.phone_name;
+  const quantity = req.body.quantity;
+  const price = req.body.price;
+  const status = req.body.status;
+
+  db.query('UPDATE `Order_Item` SET Status= ? WHERE orderId = ?' ,[status,orderID] , (err , result)=>{
+    if(err){
+      console.log(err);
+    }
+  })
+  // res.redirect(');
+  // res.redirect('/adminOrderCheck')
+  db.query('SELECT * FROM `Order_Item` order by `orderId` DESC',(err, result)=>{
+    if(err){
+      console.log(err);
+  }
+  console.log(result);
+
+  res.render('pages/adminOrderConfirm',{result : result});
+    
+  })
+  
+
+})
+
+
 
 
 app.post('/signout', function (req, res) {

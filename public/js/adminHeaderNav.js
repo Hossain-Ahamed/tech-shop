@@ -28,9 +28,11 @@ header.innerHTML = `  <!-- nav bar  -->
     <div class="collapse navbar-collapse top-navigation-bar flex-grow-0 " id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0 align-items-center ">
       <li class="nav-item">
-      <a class="nav-link position-relative" onclick = "empty()"><i class="fa-solid fa-cart-shopping"></i> Orders
-        
-      </a>
+      <!-- <a class="nav-link position-relative" onclick = "empty()"><i class="fa-solid fa-cart-shopping"></i> Orders</a> -->
+      <form action="/adminOrderCheck" method="post" class = "d-flex align-items-center">
+      <i class="fa-solid fa-cart-shopping"></i>
+          <input type="submit" class="nav-link border border-0 bg-transparent" style="cursor: pointer;" value ="Orders">
+      </form>
     </li>
       <li class="nav-item">
       <form action="/adminSignOut" method="post" class = "d-flex align-items-center">

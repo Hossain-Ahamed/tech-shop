@@ -52,12 +52,57 @@
         <h5 class="m-0 "><i class="fa-solid fa-address-card mx-1 text-success"></i><span class="">Profile</span></h5>
        
       </li>
-      <li class="list-group-item">Name : <%= result.User_Name %>
+      <li class="list-group-item">Name : <%= name %>
       </li>
-      <li class="list-group-item">Email Address : <%= result.Email %>
+      <li class="list-group-item">Email Address : <%= email %>
       </li>
       <li class="list-group-item">Your point : 00</li>
-      <li class="list-group-item">Cart Item : <span id="cartSize"></span></li>
+      <li class="list-group-item">Cart Item : 
+        <section class="container-fluid mb-5">
+           
+          <div class=" row mb-2 border-bottom text-primary">
+             
+                  <p class="col-1 text-center my-auto" style="font-size: 1.25rem;">ID</p>
+                  <p class="col-2 text-center my-auto " style="font-size: 1.25rem;">E-mail</p>
+                  <p class="col-2 text-center my-auto" style="font-size: 1.25rem;">Phone Name</p>
+                  <p class="col-1 text-center my-auto" style="font-size: 1.25rem;">Qt</p>
+                  <p class="col-2 text-center my-auto" style="font-size: 1.25rem;">Status</p>
+                  <p class="col-2 text-center my-auto" style="font-size: 1.25rem;">Price</p>
+                  <p class="col-2 text-center my-auto" style="font-size: 1.25rem;">Update</p>
+                
+             
+          </div>
+      
+      
+      <!-- phone card show case -->
+      <% result.forEach(function(item) { %>
+      <div class="row-cols-1 gy-2 gy-md-4 justify-content-center">
+          <div class="col  border-bottom">
+              <form action="/cancel" method="post" class="row justify-content-center align-items-center">
+                  <p class="col-1 text-center my-auto" style="font-size: 1.25rem;"><%= item.orderId %></p>
+                  <p class="col-2 text-center my-auto overflow-hidden" style="font-size: 1.25rem;"><%= item.Email %></p>
+                  <p class="col-2 text-center my-auto" style="font-size: 1.25rem;"><%= item.Phone_code %></p>
+                  <p class="col-1 text-center my-auto" style="font-size: 1.25rem;"><%= item.Quantity %></p>
+                  <p class="col-2 text-center my-auto" style="font-size: 1.25rem;"><%= item.Status %></p>
+                  <p class="col-2 text-center my-auto" style="font-size: 1.25rem;"><%= item.Price %></p>
+
+                  <input type="hidden" name="orderID" value="<%= item.orderId %>">
+                  <input type="hidden" name="email" value="<%= item.Email %>">
+                  <input type="hidden" name="phone_name" value="<%= item.Phone_code %>">
+                  <input type="hidden" name="quantity" value="<%= item.Quantity %>">
+                  <input type="hidden" name="price" value="<%= item.Price %>">
+                  <input type="hidden" name="status" value="Cancelled">
+                  <div class=" col-2 d-grid gap-2 d-flex justify-content-center my-1">
+                      <input class=" btn btn-danger " type="submit" value="Cancel">
+                  </div>
+              </form>
+          </div>
+
+
+      </div>
+      <% }) %>
+  </section>
+      </li>
       <li class="list-group-item d-flex justify-content-end">
         <form action="/signout" method="post">
           <button class="btn border border-0 border-secondary d-flex align-items-center" style="cursor:context-menu ;">
