@@ -16,7 +16,15 @@ And if it is available,User can buy phone from here
 > Before using the website run [proxy server](https://cors-anywhere.herokuapp.com/corsdemo) 
 
 ## Hosting
-[**the-tech-shop-bd.herokuapp.com**](https://the-tech-shop-bd.herokuapp.com/) 
+- [**the-tech-shop-bd.herokuapp.com**](https://the-tech-shop-bd.herokuapp.com/) 
+  <br>
+
+- [**Admin**](https://the-tech-shop-bd.herokuapp.com/admin) 
+```
+admin userName : alex567
+admin E-mail : alex@example.com
+admin password : admindemopass980$*-
+```
   
 ## Documentation
 - Clone the project <br>
