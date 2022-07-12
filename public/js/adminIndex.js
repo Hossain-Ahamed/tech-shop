@@ -62,6 +62,6 @@ loadPhoneBrandCase();
 const showAllPhoneOfClickedBrand = urlID =>{
     //_____________Admin____________________//
     let id = event.srcElement.id;
-    let url= `adminShowCase.html?q=https://mobilephonedatafetch.herokuapp.com/brand/${id}&dataIn=true`;
+    let url= `adminShowCase?q=https://mobilephonedatafetch.herokuapp.com/brand/${id}&dataIn=true`;
     location.assign(url);
 }
