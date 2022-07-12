@@ -106,7 +106,7 @@ function CORSSolve(url) {
 
     }
   };
-  let modalUrl = `https://cors-anywhere.herokuapp.com/http://gsmarena-api.herokuapp.com/device/`+url;
+  let modalUrl = `https://cors-anywhere.herokuapp.com/https://mobilephonedatafetch.herokuapp.com/device/`+url;
   //https://cors-anywhere.herokuapp.com/corsdemo
   xhttp.open("GET", modalUrl, true);
   xhttp.send()

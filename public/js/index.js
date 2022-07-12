@@ -44,7 +44,7 @@ const displayBrands = brands => {
 //load the brand name
 const loadPhoneBrandCase = () => {
  
-  const url = `https://cors-anywhere.herokuapp.com/http://gsmarena-api.herokuapp.com/brands`;
+  const url = `https://cors-anywhere.herokuapp.com/https://mobilephonedatafetch.herokuapp.com/brands`;
   //  ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓  uncomment FOR LOAD DATA  ↓ ↓ ↓ ↓ ↓ ↓ 
   CORSSolve(url);
 
@@ -64,7 +64,7 @@ const showAllPhoneOfClickedBrand = urlID =>{
   let id = event.srcElement.id;
   
     ///___________________client______________//
-      let url= `ShowCase?q=http://gsmarena-api.herokuapp.com/brand/${id}&dataIn=true`;
+      let url= `ShowCase?q=https://mobilephonedatafetch.herokuapp.com/brand/${id}&dataIn=true`;
       location.assign(url);
  
 }

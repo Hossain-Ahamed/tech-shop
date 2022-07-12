@@ -87,7 +87,7 @@ const searchItem = () =>{
     }
    
   }
-    let url= `ShowCase?q=http://gsmarena-api.herokuapp.com/search/${searched_URL_Text}&dataIn=false`;
+    let url= `ShowCase?q=https://mobilephonedatafetch.herokuapp.com/search/${searched_URL_Text}&dataIn=false`;
   
     // console.log(url);
   location.assign(url);
