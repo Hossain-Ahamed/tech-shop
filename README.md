@@ -3,10 +3,10 @@ Web project on  a tech shop
 
 ### Table of Contents
 
-* [Details](#)
-* [Hosting](#)
-* [Documentation](#)
-* [Prerequisite](#)
+* [Details](#Details)
+* [Hosting](#Hosting)
+* [Documentation](#Documentation)
+* [Prerequisite](#prerequisite)
 
 
 ## Details
