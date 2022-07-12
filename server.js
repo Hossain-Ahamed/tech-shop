@@ -288,6 +288,8 @@ app.post('/login' , function async(req, res){
                 res.cookie("Name",userName);     
                 req.session.user = Email;
                 res.redirect('/profile');  
+            }else{
+              return res.render('pages/SignInLogIn',{reso : "password didn't match", reso1 : ""});
             }
        }
        else{
