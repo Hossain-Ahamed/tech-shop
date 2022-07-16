@@ -21,9 +21,9 @@ And if it is available,User can buy phone from here
 
 - [**Admin**](https://the-tech-shop-bd.herokuapp.com/admin) 
 ```
-admin userName : alex567
-admin E-mail : alex@example.com
-admin password : admindemopass980$*-
+Admin userName : alex567
+Admin E-mail : alex@example.com
+Admin password : admindemopass980$*-
 ```
   
 ## Documentation
@@ -36,7 +36,7 @@ admin password : admindemopass980$*-
 
 
 ## prerequisite
-- Visit [the link](https://cors-anywhere.herokuapp.com/corsdemo)  to turn on the `Proxy Server`
+- Visit the link to turn on the [`Proxy Server`](https://cors-anywhere.herokuapp.com/corsdemo)
 ```
 https://cors-anywhere.herokuapp.com/corsdemo
 
