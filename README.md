@@ -2,7 +2,6 @@
 Web project on  a tech shop 
 
 ### Table of Contents
-
 * [Details](#Details)
 * [Hosting](#Hosting)
 * [Documentation](#Documentation)
